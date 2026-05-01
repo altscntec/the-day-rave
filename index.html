@@ -84,7 +84,25 @@
   .hero-tag{font-family:var(--M);font-size:10px;letter-spacing:.32em;text-transform:uppercase;margin-top:26px;opacity:.8;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
   .hero-tag .b{width:4px;height:4px;border-radius:50%;background:var(--pink);align-self:center}
 
-  .hero-cta{display:flex;gap:10px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+  .hero-cta{display:flex;gap:10px;justify-content:center;margin-top:30px;flex-wrap:wrap;align-items:center}
+
+  /* primary CTA — Buy Tickets */
+  .btn--tickets{background:var(--cream);color:var(--red);font-weight:700;font-size:12px;letter-spacing:.28em;padding:18px 30px;box-shadow:0 10px 30px rgba(0,0,0,.18),0 0 0 0 rgba(244,233,206,.5);animation:ctaPulse 2.4s ease-in-out infinite}
+  .btn--tickets:hover{background:var(--pink);color:var(--red);transform:translateY(-3px) scale(1.03)}
+  @keyframes ctaPulse{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,.18),0 0 0 0 rgba(244,233,206,.55)}50%{box-shadow:0 10px 30px rgba(0,0,0,.22),0 0 0 14px rgba(244,233,206,0)}}
+
+  /* secondary — Join Community (subtle ghost link) */
+  .btn--wa-ghost{background:transparent;color:var(--cream);font-size:10px;letter-spacing:.22em;padding:10px 14px;opacity:.7;border:none;text-decoration:underline;text-decoration-color:rgba(244,233,206,.35);text-underline-offset:5px}
+  .btn--wa-ghost:hover{opacity:1;color:#25D366;text-decoration-color:#25D366}
+  .btn--wa-ghost svg{opacity:.85}
+
+  /* scroll cue */
+  .hero-scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--M);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--cream);text-decoration:none;opacity:.75;z-index:4;transition:opacity .4s ease,transform .4s ease;animation:scrollFloat 3s ease-in-out infinite}
+  .hero-scroll-line{position:relative;width:1px;height:42px;background:rgba(244,233,206,.22);overflow:hidden}
+  .hero-scroll-line::after{content:'';position:absolute;top:-60%;left:0;width:100%;height:60%;background:var(--cream);animation:scrollDot 1.8s cubic-bezier(.6,0,.4,1) infinite}
+  @keyframes scrollDot{0%{transform:translateY(0);opacity:0}20%{opacity:1}80%{opacity:1}100%{transform:translateY(220%);opacity:0}}
+  @keyframes scrollFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)}}
+  body.scrolled .hero-scroll{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(10px)}
   .btn{position:relative;display:inline-flex;align-items:center;gap:10px;font-family:var(--M);font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:14px 22px;text-decoration:none;cursor:none;transition:transform .2s,background .2s,color .2s;border:none;overflow:hidden}
   .btn--wa{background:#25D366;color:#fff}
   .btn--wa:hover{transform:translateY(-2px)}
@@ -541,11 +559,11 @@
         <span>12:00 — 17:00</span>
       </div>
       <div class="hero-cta">
-        <a href="https://chat.whatsapp.com/Hbyg4XitpbQDC8Hm7uv0HZ" target="_blank" rel="noopener" class="btn btn--wa" data-cur="join">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.463 3.488A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener" class="btn btn--tickets" data-cur="tickets">Buy Tickets →</a>
+        <a href="https://chat.whatsapp.com/Hbyg4XitpbQDC8Hm7uv0HZ" target="_blank" rel="noopener" class="btn btn--wa-ghost" data-cur="join">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.463 3.488A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           Join Community
         </a>
-        <button class="btn btn--ghost" onclick="showModal()" data-cur="tickets">Buy Tickets ↗</button>
       </div>
     </div>
 
@@ -557,6 +575,11 @@
       <div class="row"><span class="k">Date</span><span id="hCD">T− — —</span></div>
     </div>
   </div>
+
+  <a href="#cup-section" class="hero-scroll" aria-label="Scroll down" data-cur="scroll">
+    <span>Scroll</span>
+    <span class="hero-scroll-line"></span>
+  </a>
 </section>
 
 <!-- ============ MARQUEE ============ -->
@@ -1044,6 +1067,8 @@ function onScroll(){
   // nav show/hide
   document.querySelector('nav').style.transform=(window.scrollY>lastY&&window.scrollY>100)?'translateY(-100%)':'translateY(0)';
   lastY=window.scrollY;
+  // scroll cue fade
+  document.body.classList.toggle('scrolled',window.scrollY>80);
 }
 let lastY=0;
 window.addEventListener('scroll',onScroll,{passive:true});
