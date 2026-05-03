@@ -52,7 +52,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   .scroll-prog{position:fixed;top:0;left:0;right:0;height:2px;background:transparent;z-index:300}
   .scroll-prog::after{content:'';position:absolute;inset:0 auto 0 0;width:var(--sp,0%);background:var(--red);transition:width .1s linear}
 
-  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:18px 28px;mix-blend-mode:difference;color:var(--cream)}
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;color:var(--cream);background:rgba(11,11,11,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
   .nl{font-family:var(--D);font-size:20px;color:var(--cream);text-decoration:none;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
   .nl-dot{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(230,48,39,.6);animation:pulse 1.6s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(230,48,39,.7)}70%{box-shadow:0 0 0 14px rgba(230,48,39,0)}100%{box-shadow:0 0 0 0 rgba(230,48,39,0)}}
@@ -63,6 +63,9 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   .na:hover::after{transform:scaleX(1)}
   .na.active{opacity:1}
   .na.active::after{transform:scaleX(1)}
+  .na--cta{opacity:1;background:var(--red);color:var(--cream)!important;padding:6px 14px;border-radius:999px;letter-spacing:.18em;font-weight:500;transition:background .2s,transform .15s}
+  .na--cta::after{display:none}
+  .na--cta:hover{background:var(--red-deep);transform:scale(1.05)}
   .na-live{font-family:var(--M);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);opacity:.5;display:flex;align-items:center;gap:8px}
   .na-live .dt{width:5px;height:5px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite}
 
@@ -501,9 +504,10 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     body{cursor:auto}.cur,.cur-r,.cur-label{display:none}
     nav{padding:12px 14px}
     .nl{font-size:14px}
-    .nls{gap:10px}
-    .nls .na{display:none}
+    .nls{gap:8px}
+    .nls .na:not(.na--cta){display:none}
     .nls .na-live{display:none}
+    .na--cta{font-size:9px;padding:5px 10px}
     .feel-stats{grid-template-columns:1fr 1fr}
     .feel-stat{border-right:none;border-bottom:1.5px solid var(--red);padding:20px 16px}
     .feel-stat:nth-child(2n){border-right:none}
@@ -565,15 +569,9 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
 <nav>
   <a href="#hero" class="nl"><span class="nl-dot"></span> The Day Rave</a>
   <div class="nls">
-    <a href="#feel"  class="na">Feel</a>
     <a href="#acts"  class="na">Protocol</a>
-    <a href="#sound" class="na">Sound</a>
-    <a href="#when"  class="na">When</a>
     <a href="#sched" class="na">Schedule</a>
-    <a href="#inv"   class="na">About</a>
-    <a href="#sponsors" class="na">Sponsors</a>
-    <a href="#join"  class="na">Join</a>
-    <span class="na-live"><span class="dt"></span><span id="ncd">—</span></span>
+    <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener" class="na na--cta" data-cur="tickets">Buy Tickets</a>
     <div class="lang-toggle">
       <button class="lang-btn" id="langNL" onclick="setLang('nl')" data-cur="NL">NL</button>
       <span class="lang-sep">|</span>
@@ -1125,8 +1123,8 @@ document.querySelectorAll('a,button,input,select,[data-cur]').forEach(el=>{
 
 /* ==================== SCROLL PROGRESS + ACTIVE NAV ==================== */
 const sprog=document.getElementById('sprog');
-const sections=['hero','feel','acts','when','sched','inv','sponsors','join'].map(id=>document.getElementById(id));
-const navLinks=document.querySelectorAll('nav .na');
+const sections=['hero','acts','sched'].map(id=>document.getElementById(id));
+const navLinks=document.querySelectorAll('nav .na:not(.na--cta)');
 function onScroll(){
   const h=document.documentElement;
   const p=(h.scrollTop)/(h.scrollHeight-h.clientHeight);
@@ -1382,13 +1380,9 @@ function setLang(lang){
   const meta=q('meta[name="description"]');if(meta)meta.content=n?'IJsbad. Sauna. HIIT. Pilates. Coffee Rave. IJland Amsterdam Noord. 14 Juni 2026.':'Cold Plunge. Sauna. HIIT. Pilates. Coffee Rave. IJland Amsterdam Noord. 14 June 2026.';
 
   /* ---- Nav ---- */
-  t('a[href="#feel"]','Feel','Beleving');
-  t('a[href="#sound"]','Sound','Geluid');
-  t('a[href="#when"]','When','Wanneer');
+  t('a[href="#acts"]','Protocol','Protocol');
   t('a[href="#sched"]','Schedule','Programma');
-  t('a[href="#inv"]','About','Over Ons');
-  t('a[href="#sponsors"]','Sponsors','Partners');
-  t('a[href="#join"]','Join','Meedoen');
+  t('.na--cta','Buy Tickets','Koop Tickets');
 
   /* ---- Hero side left ---- */
   t('.hero-side.left .row:nth-child(3) .k','Venue','Locatie');
