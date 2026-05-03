@@ -65,6 +65,12 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   .na.active::after{transform:scaleX(1)}
   .na-live{font-family:var(--M);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);opacity:.5;display:flex;align-items:center;gap:8px}
   .na-live .dt{width:5px;height:5px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite}
+
+  /* language toggle */
+  .lang-toggle{display:flex;align-items:center;gap:0;margin-left:8px}
+  .lang-btn{font-family:var(--M);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);opacity:.4;background:none;border:none;padding:4px 6px;cursor:none;transition:opacity .2s}
+  .lang-btn.active{opacity:1}
+  .lang-sep{color:var(--cream);opacity:.25;font-family:var(--M);font-size:9px}
   @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.2}}
 
   section{min-height:100vh;position:relative;overflow:hidden}
@@ -568,6 +574,11 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     <a href="#sponsors" class="na">Sponsors</a>
     <a href="#join"  class="na">Join</a>
     <span class="na-live"><span class="dt"></span><span id="ncd">—</span></span>
+    <div class="lang-toggle">
+      <button class="lang-btn" id="langNL" onclick="setLang('nl')" data-cur="NL">NL</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn active" id="langEN" onclick="setLang('en')" data-cur="EN">EN</button>
+    </div>
   </div>
 </nav>
 
@@ -600,7 +611,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
         <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener" class="btn btn--tickets" data-cur="tickets">Buy Tickets →</a>
         <a href="https://chat.whatsapp.com/Hbyg4XitpbQDC8Hm7uv0HZ" target="_blank" rel="noopener" class="btn btn--wa-ghost" data-cur="join">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.463 3.488A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-          Join Community
+          <span id="waText">Join Community</span>
         </a>
       </div>
     </div>
@@ -1064,7 +1075,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   </h2>
   <a href="https://chat.whatsapp.com/Hbyg4XitpbQDC8Hm7uv0HZ" target="_blank" rel="noopener" class="btn btn--solid" style="font-size:11px;padding:18px 30px;z-index:2" data-cur="join">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.463 3.488A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-    Join the Active Reset Community
+    <span id="joinBtnText">Join the Active Reset Community</span>
   </a>
   <div class="jn">Urban Wellness · Amsterdam · 400 spots</div>
 </section>
@@ -1349,6 +1360,224 @@ document.querySelectorAll('.btn').forEach(b=>{
   });
   b.addEventListener('mouseleave',()=>{b.style.transform=''});
 });
+
+/* ==================== LANGUAGE TOGGLE (NL / EN) ==================== */
+function setLang(lang){
+  const n=lang==='nl';
+  localStorage.setItem('lang',lang);
+  document.documentElement.lang=lang;
+
+  // Toggle button state
+  document.getElementById('langNL').classList.toggle('active',n);
+  document.getElementById('langEN').classList.toggle('active',!n);
+
+  // Helpers
+  const q=(s,i)=>i!=null?document.querySelectorAll(s)[i]:document.querySelector(s);
+  const t=(s,en,nl,i)=>{const e=q(s,i);if(e)e.textContent=n?nl:en;};
+  const h=(s,en,nl)=>{const e=q(s);if(e)e.innerHTML=n?nl:en;};
+  const pl=(s,en,nl)=>{const e=q(s);if(e)e.placeholder=n?nl:en;};
+
+  /* ---- Page title + meta ---- */
+  document.title=n?'The Day Rave — IJsbad & Coffee Rave · 14 Juni 2026':'The Day Rave — Cold Plunge & Coffee Rave · 14 June 2026';
+  const meta=q('meta[name="description"]');if(meta)meta.content=n?'IJsbad. Sauna. HIIT. Pilates. Coffee Rave. IJland Amsterdam Noord. 14 Juni 2026.':'Cold Plunge. Sauna. HIIT. Pilates. Coffee Rave. IJland Amsterdam Noord. 14 June 2026.';
+
+  /* ---- Nav ---- */
+  t('a[href="#feel"]','Feel','Beleving');
+  t('a[href="#sound"]','Sound','Geluid');
+  t('a[href="#when"]','When','Wanneer');
+  t('a[href="#sched"]','Schedule','Programma');
+  t('a[href="#inv"]','About','Over Ons');
+  t('a[href="#sponsors"]','Sponsors','Partners');
+  t('a[href="#join"]','Join','Meedoen');
+
+  /* ---- Hero side left ---- */
+  t('.hero-side.left .row:nth-child(3) .k','Venue','Locatie');
+  t('.hero-side.left .row:nth-child(4) .k','Capacity','Capaciteit');
+
+  /* ---- Hero side right ---- */
+  t('.hero-side.right .row:nth-child(4) .k','Format','Formaat');
+  t('.hero-side.right .row:nth-child(4) span:last-child','Open Day','Open Dag');
+  t('.hero-side.right .row:nth-child(5) .k','Date','Datum');
+
+  /* ---- Hero CTA ---- */
+  t('.btn--tickets','Buy Tickets →','Koop Tickets →');
+  t('#waText','Join Community','Word Lid');
+
+  /* ---- Hero tag ---- */
+  t('.hero-tag span:first-child','14 Jun 2026','14 Jun 2026');
+
+  /* ---- Cup section ---- */
+  t('.cup-copy .kw','Signature Drink','Signature Drink');
+  h('.cup-copy h2',
+    'Iced. <span class="pk">Loud.</span><br><span class="out">All day.</span>',
+    'IJskoud. <span class="pk">Hard.</span><br><span class="out">De hele dag.</span>');
+  t('.cup-copy p',
+    'No hangovers, no after-feeling. Just iced coffee, cold plunges and five hours of dancefloor. The Day Rave — in one cup.',
+    'Geen katers, geen naar gevoel. Gewoon ijskoffie, ijsbaden en vijf uur dansvloer. The Day Rave — in één beker.');
+  h('.cup-copy .hl',
+    '<span class="dot"></span>Served all day, every stage',
+    '<span class="dot"></span>De hele dag, op elk podium');
+
+  /* ---- Feel section ---- */
+  t('.feel-kw','— Active Reset — Urban Wellness — All Day Energy —','— Actieve Reset — Stedelijke Wellness — Energie de Hele Dag —',0);
+  t('.feel-stat:nth-child(1) .fs-l','Cold Plunge','IJsbad');
+  t('.feel-stat:nth-child(3) .fs-l','Areas','Zones');
+  t('.feel-stat:nth-child(5) .fs-l','Max Day Capacity','Max Dagcapaciteit');
+
+  /* ---- Protocol / Activities ---- */
+  t('.acts-subtitle',
+    'Six stations, one ritual. Move between them at your own pace — the DJ never stops.',
+    'Zes stations, één ritueel. Beweeg op je eigen tempo — de DJ stopt nooit.');
+  t('.act[data-k="plunge"] .act-desc',
+    'Guided ice bath at 3°C. Two-minute dip, full-body nervous-system reset. Hold the click to feel it.',
+    'Begeleid ijsbad op 3°C. Twee minuten onderdompeling, volledige reset van je zenuwstelsel.');
+  t('.act[data-k="sauna"] .act-desc',
+    '90°C dry heat. Sweat, circulate, return.',
+    '90°C droge hitte. Zweet, circuleer, keer terug.');
+  t('.act[data-k="hiit"] .act-desc',
+    '30 min. During the rave.',
+    '30 min. Tijdens de rave.');
+  t('.act[data-k="pilates"] .act-desc',
+    'Slow burn. Breathe through the drop.',
+    'Langzaam branden. Adem door de drop.');
+  t('.act[data-k="zumba"] .act-desc',
+    'Dance the drop out. Pure groove cardio.',
+    'Dans de drop eruit. Pure groove cardio.');
+  t('.act[data-k="booty"] .act-desc',
+    'Sculpt the engine room. Hips, glutes, core — fired up to the beat.',
+    'Vorm je krachtcentrum. Heupen, billen, core — op het ritme.');
+  t('.act[data-k="rave"] .act-desc',
+    'Specialty espresso. Cold-pressed juice. A five-hour DJ set that never stops. The sun is the spotlight.',
+    'Specialty espresso. Coldpress sap. Een vijf uur durende DJ-set die nooit stopt. De zon is de spotlight.');
+  t('.act[data-k="rave"] .act-temp-num','All Day','Hele Dag');
+
+  /* ---- Sound ---- */
+  t('.sound-kw','— The Soundtrack —','— De Soundtrack —');
+  h('.sound-title',
+    'Five hours.<br><span class="pk">One BPM.</span>',
+    'Vijf uur.<br><span class="pk">Eén BPM.</span>');
+  t('.sound-copy',
+    'A DJ-led day soundtrack. Press play below — this is what twelve-to-five feels like.',
+    'Een door de DJ geleide soundtrack. Druk op play — zo voelt twaalf tot vijf.');
+
+  /* ---- When ---- */
+  t('.feel-kw','— Save The Date —','— Noteer de Datum —',1);
+  t('.when-meta .row:nth-child(1) .k','Day','Dag');
+  t('.when-meta .row:nth-child(1) .v','Sunday','Zondag');
+  t('.when-meta .row:nth-child(2) .k','Time','Tijd');
+  t('.when-meta .row:nth-child(3) .k','Venue','Locatie');
+  t('.cd-l','Days','Dagen',0);
+  t('.cd-l','Hrs','Uren',1);
+
+  /* ---- Schedule / Four Areas ---- */
+  h('.sched-title',
+    'The Day /<br><span style="color:var(--pink)">Four Areas.</span>',
+    'De Dag /<br><span style="color:var(--pink)">Vier Zones.</span>');
+  h('.sched-head div:last-child',
+    'One day. Four zones.<br>Move between them freely.',
+    'Eén dag. Vier zones.<br>Loop vrij rond.');
+
+  /* Area 1 — Main Stage */
+  h('.area:nth-child(1) .area-cap','Main Stage<br>1,000 pax capacity','Hoofdpodium<br>1.000 personen capaciteit');
+  t('.area:nth-child(1) .area-kind','Coffee Rave + Classes','Coffee Rave + Lessen');
+  t('.area:nth-child(1) .slot:nth-child(1) .slot-no','DJ-led all day','DJ de hele dag');
+  t('.area:nth-child(1) .slot:nth-child(2) .slot-no','with Melisa','met Melisa');
+  t('.area:nth-child(1) .slot:nth-child(3) .slot-n','Coffee Rave Continues','Coffee Rave gaat door');
+  t('.area:nth-child(1) .slot:nth-child(3) .slot-no','Keep the groove','Houd de groove vast');
+  t('.area:nth-child(1) .slot:nth-child(4) .slot-no','with Simone','met Simone');
+
+  /* Area 2 — The Garden */
+  h('.area:nth-child(2) .area-cap','Garden<br>Outdoor zone','Tuin<br>Buitenzone');
+  t('.area:nth-child(2) .area-kind','Contrast Therapy','Contrast Therapie');
+  t('.area:nth-child(2) .slot:nth-child(1) .slot-n','Session One','Sessie Eén');
+  t('.area:nth-child(2) .slot:nth-child(1) .slot-no','Plunge · sauna · recover','IJsbad · sauna · herstel');
+  t('.area:nth-child(2) .slot:nth-child(2) .slot-n','Break','Pauze');
+  t('.area:nth-child(2) .slot:nth-child(2) .slot-no','Garden reset','Tuin reset');
+  t('.area:nth-child(2) .slot:nth-child(3) .slot-n','Session Two','Sessie Twee');
+  t('.area:nth-child(2) .slot:nth-child(3) .slot-no','Plunge · sauna · closing','IJsbad · sauna · afsluiting');
+  t('.area:nth-child(2) .area-note',
+    'P.S. Bring appropriate clothing + your own towel.',
+    'P.S. Neem geschikte kleding + je eigen handdoek mee.');
+
+  /* Area 3 — Health Community */
+  h('.area:nth-child(3) .area-cap','Water Terrace<br>Community zone','Waterterras<br>Gemeenschapszone');
+  t('.area:nth-child(3) .area-kind','Water Terrace','Waterterras');
+  t('.area:nth-child(3) .area-li:nth-child(1) span:first-child','Food Stall','Eetstal');
+  t('.area:nth-child(3) .area-li:nth-child(2) span:first-child','Drink Stall','Drankstal');
+  t('.area:nth-child(3) .area-li:nth-child(3) span:first-child','Health & Wellness Brand Stalls','Gezondheids- & Wellness Merkkramen');
+  t('.area:nth-child(3) .area-note',
+    'Brands and vendors announced closer to the day.',
+    'Merken en verkopers worden later bekendgemaakt.');
+
+  /* Area 4 — The Studio */
+  h('.area:nth-child(4) .area-cap','The Studio<br>300 pax capacity','De Studio<br>300 personen capaciteit');
+  t('.area:nth-child(4) .area-kind','Classes & Workshops','Lessen & Workshops');
+
+  /* ---- About / Why We Rave ---- */
+  t('.feel-kw','— The Story —','— Het Verhaal —',2);
+  h('.inv-title','Why<br>We Rave.','Waarom<br>We Raven.');
+  t('.inv-sub',
+    'A new kind of Sunday. Cold plunge, sauna, HIIT, Pilates, Zumba — all wrapped in a five-hour coffee rave. Active urban wellness, built for Amsterdam.',
+    'Een nieuw soort zondag. IJsbad, sauna, HIIT, Pilates, Zumba — verpakt in een vijf uur durende coffee rave. Actieve stedelijke wellness, gemaakt voor Amsterdam.');
+  t('.inum:nth-child(1) .il','Of Coffee Rave','Aan Coffee Rave');
+  t('.inum:nth-child(2) .il','Activities','Activiteiten');
+  t('.inum:nth-child(3) .il','Plunge Temp','IJsbad Temp');
+  t('.inum:nth-child(4) .il','Spots · June \'26','Plekken · Juni \'26');
+
+  /* ---- Contact form ---- */
+  t('.fh','Contact Us','Neem Contact Op');
+  t('.flb','Full Name','Volledige Naam',0);
+  t('.flb','Email','E-mail',1);
+  t('.flb','Phone','Telefoon',2);
+  t('.flb','Message','Bericht',3);
+  t('#invBtn','Send enquiry →','Verstuur aanvraag →');
+  t('#invSucc','✓ We\'ll be in touch shortly.','✓ We nemen snel contact op.');
+  pl('.fi[name="full_name"]','Your full name','Je volledige naam');
+  pl('.fi[name="email"]','you@domain.com','jij@voorbeeld.nl');
+  pl('.fi[name="message"]','Tell us why you\'re reaching out','Vertel ons waarom je contact opneemt');
+
+  /* ---- Sponsors ---- */
+  t('.sp3-kw','Partner with us','Word partner');
+  h('.sp3-title',
+    'Let\'s make<br><span class="pk">raving healthy.</span>',
+    'Laten we<br><span class="pk">gezond raven.</span>');
+  t('.sp3-n','01 / Partner','01 / Partner',0);
+  t('.sp3-n','02 / Teach','02 / Lesgeven',1);
+  t('.sp3-n','03 / Feed','03 / Voeden',2);
+  t('.sp3-n','04 / Kit','04 / Kleding',3);
+  h('.sp3-block:nth-child(2) .sp3-title-b','Classes &amp;<br>Instructors','Lessen &amp;<br>Instructeurs');
+  h('.sp3-block:nth-child(3) .sp3-title-b','Food &amp;<br>Drink Brands','Eet- &amp;<br>Drankmerken');
+  h('.sp3-block:nth-child(4) .sp3-title-b','Active<br>Wear Brands','Sportkleding<br>Merken');
+  t('.sp3-final-eye','Get in touch','Neem contact op');
+  h('.sp3-final-title',
+    'Contact us<br><span class="pk">and let\'s build it.</span>',
+    'Neem contact op<br><span class="pk">en laten we het bouwen.</span>');
+  h('.sp3-final-btn',
+    'Contact us <span class="ar">→</span>',
+    'Neem contact op <span class="ar">→</span>');
+
+  /* ---- Join ---- */
+  t('#joinBtnText','Join the Active Reset Community','Word lid van de Active Reset Community');
+  t('.jn','Urban Wellness · Amsterdam · 400 spots','Stedelijke Wellness · Amsterdam · 400 plekken');
+
+  /* ---- Footer ---- */
+  h('.fco',
+    'Cold Plunge &amp; Coffee Rave<br>IJland AMS · 14 June 2026',
+    'IJsbad &amp; Coffee Rave<br>IJland AMS · 14 Juni 2026',0);
+  t('footer .fco div','Contact','Contact');
+
+  /* ---- Ticket badge ---- */
+  t('#tixPop a','Tickets · 14 June →','Tickets · 14 Juni →');
+
+  /* ---- Copy toast ---- */
+  t('#copyToast','Email copied ✓','E-mail gekopieerd ✓');
+}
+
+/* Restore saved language on load */
+(function(){
+  const saved=localStorage.getItem('lang');
+  if(saved==='nl')setLang('nl');
+})();
 
 </script>
 </body>
