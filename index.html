@@ -66,6 +66,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   .na--cta{opacity:1;background:var(--red);color:var(--cream)!important;padding:6px 14px;border-radius:999px;letter-spacing:.18em;font-weight:500;transition:background .2s,transform .15s}
   .na--cta::after{display:none}
   .na--cta:hover{background:var(--red-deep);transform:scale(1.05)}
+  .na--faq{opacity:.85;font-weight:500}
   .na-live{font-family:var(--M);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);opacity:.5;display:flex;align-items:center;gap:8px}
   .na-live .dt{width:5px;height:5px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite}
 
@@ -535,9 +536,10 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     nav{padding:12px 14px}
     .nl{font-size:14px}
     .nls{gap:8px}
-    .nls .na:not(.na--cta){display:none}
+    .nls .na:not(.na--cta):not(.na--faq){display:none}
     .nls .na-live{display:none}
     .na--cta{font-size:9px;padding:5px 10px}
+    .na--faq{font-size:9px}
     .feel-stats{grid-template-columns:1fr 1fr}
     .feel-stat{border-right:none;border-bottom:1.5px solid var(--red);padding:20px 16px}
     .feel-stat:nth-child(2n){border-right:none}
@@ -602,6 +604,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     <a href="#acts"  class="na">Protocol</a>
     <a href="#sched" class="na">Schedule</a>
     <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener" class="na na--cta" data-cur="tickets">Buy Tickets</a>
+    <a href="#faq" class="na na--faq">FAQ</a>
     <div class="lang-toggle">
       <button class="lang-btn" id="langNL" onclick="setLang('nl')" data-cur="NL">NL</button>
       <span class="lang-sep">|</span>
@@ -1297,7 +1300,7 @@ document.querySelectorAll('a,button,input,select,[data-cur]').forEach(el=>{
 
 /* ==================== SCROLL PROGRESS + ACTIVE NAV ==================== */
 const sprog=document.getElementById('sprog');
-const sections=['hero','acts','sched'].map(id=>document.getElementById(id));
+const sections=['hero','acts','sched','faq'].map(id=>document.getElementById(id));
 const navLinks=document.querySelectorAll('nav .na:not(.na--cta)');
 function onScroll(){
   const h=document.documentElement;
@@ -1557,6 +1560,7 @@ function setLang(lang){
   t('a[href="#acts"]','Protocol','Protocol');
   t('a[href="#sched"]','Schedule','Programma');
   t('.na--cta','Buy Tickets','Koop Tickets');
+  t('.na--faq','FAQ','FAQ');
 
   /* ---- Hero side left ---- */
   t('.hero-side.left .row:nth-child(3) .k','Venue','Locatie');
