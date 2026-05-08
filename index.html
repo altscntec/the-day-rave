@@ -367,7 +367,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
 
   /* ============ SPONSORS v3 ============ */
   #sponsors{background:var(--cream);color:var(--red);padding:0;overflow:hidden;position:relative}
-  .sp3-top{padding:110px 32px 50px;max-width:1400px;margin:0 auto;text-align:center}
+  .sp3-top{padding:80px 32px 40px;max-width:1400px;margin:0 auto;text-align:center}
   @media(max-width:900px){.sp3-top{padding:80px 24px 30px}}
   .sp3-kw{font-family:var(--M);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);opacity:.6;margin-bottom:28px;display:inline-flex;align-items:center;gap:14px}
   .sp3-kw::before,.sp3-kw::after{content:'';width:40px;height:1.5px;background:var(--red);opacity:.5}
@@ -385,7 +385,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   /* 2x2 block grid */
   .sp3-grid{max-width:1400px;margin:0 auto;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--red);border-bottom:1.5px solid var(--red)}
   @media(max-width:780px){.sp3-grid{grid-template-columns:1fr}}
-  .sp3-block{position:relative;aspect-ratio:1/.72;background:var(--cream);display:flex;flex-direction:column;justify-content:space-between;padding:44px 40px;text-decoration:none;overflow:hidden;cursor:none;border-right:1.5px solid var(--red);border-bottom:1.5px solid var(--red);transition:background .45s cubic-bezier(.2,.8,.2,1)}
+  .sp3-block{position:relative;aspect-ratio:1/.55;background:var(--cream);display:flex;flex-direction:column;justify-content:space-between;padding:44px 40px;text-decoration:none;overflow:hidden;cursor:none;border-right:1.5px solid var(--red);border-bottom:1.5px solid var(--red);transition:background .45s cubic-bezier(.2,.8,.2,1)}
   .sp3-block:nth-child(2n){border-right:none}
   .sp3-block:nth-child(n+3){border-bottom:none}
   @media(max-width:780px){.sp3-block{aspect-ratio:auto;min-height:280px;border-right:none !important;border-bottom:1.5px solid var(--red) !important}.sp3-block:last-child{border-bottom:none !important}}
@@ -407,12 +407,13 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   .sp3-block:hover .sp3-icon{transform:rotate(360deg)}
   .sp3-icon svg{width:34px;height:34px;fill:none;stroke:var(--red);stroke-width:1.5;transition:stroke .3s}
 
-  /* reveal */
-  .sp3-block{opacity:0;transform:translateY(30px);transition:opacity .7s, transform .7s, background .45s cubic-bezier(.2,.8,.2,1)}
-  .sp3-block.in{opacity:1;transform:none}
+  /* reveal — visible by default, animation only when JS adds .reveal-ready */
+  .sp3-block{opacity:1;transition:background .45s cubic-bezier(.2,.8,.2,1)}
+  .sp3-block.reveal-ready{opacity:0;transform:translateY(30px);transition:opacity .7s, transform .7s, background .45s cubic-bezier(.2,.8,.2,1)}
+  .sp3-block.reveal-ready.in{opacity:1;transform:none}
 
   /* contact cta */
-  .sp3-final{background:var(--red);color:var(--cream);padding:100px 32px;position:relative;overflow:hidden;text-align:center}
+  .sp3-final{background:var(--red);color:var(--cream);padding:70px 32px;position:relative;overflow:hidden;text-align:center}
   .sp3-final::before,.sp3-final::after{content:'◆';position:absolute;font-size:26px;color:var(--pink);opacity:.55;animation:sp3Float 6s ease-in-out infinite}
   .sp3-final::before{top:28%;left:9%}
   .sp3-final::after{bottom:22%;right:11%;animation-delay:3s}
@@ -1471,10 +1472,14 @@ onScroll();
 (function sp2Reveal(){
   const lanes=document.querySelectorAll('.sp3-block');
   if(!lanes.length)return;
+  // Add reveal-ready class so opacity:0 kicks in only if JS works
+  lanes.forEach(l=>l.classList.add('reveal-ready'));
   const io=new IntersectionObserver((es)=>es.forEach(e=>{
     if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
-  }),{threshold:.2,rootMargin:'0px 0px -60px 0px'});
+  }),{threshold:.1,rootMargin:'0px 0px -30px 0px'});
   lanes.forEach((l,i)=>{l.style.transitionDelay=(i*80)+'ms';io.observe(l);});
+  // Safety fallback: ensure visible after 2s no matter what
+  setTimeout(()=>lanes.forEach(l=>l.classList.add('in')),2000);
 })();
 
 /* ==================== SCHEDULE removed — replaced with 4-area static layout ==================== */
