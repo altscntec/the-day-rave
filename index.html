@@ -33,6 +33,8 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
 </noscript>
 <!-- End Facebook Pixel Code -->
+<!-- Google reCAPTCHA v2 -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
   :root{
@@ -612,6 +614,38 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     .tix-pop .tix-dot{animation:none}
   }
 
+  /* ============ CONTACT MODAL ============ */
+  .cmodal{display:none;position:fixed;inset:0;z-index:600;background:rgba(11,11,11,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+  .cmodal.open{display:flex}
+  .cmodal-box{background:var(--cream);color:var(--red);max-width:520px;width:100%;padding:48px 40px;position:relative;border:1.5px solid var(--red);max-height:90vh;overflow-y:auto;animation:cmodalIn .35s cubic-bezier(.2,.8,.2,1)}
+  @keyframes cmodalIn{from{opacity:0;transform:scale(.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+  .cmodal-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:24px;color:var(--red);cursor:pointer;font-family:var(--D);line-height:1;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+  .cmodal-close:hover{background:rgba(230,48,39,.1)}
+  .cmodal-eye{font-family:var(--M);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--red);opacity:.6;margin-bottom:12px;text-align:center}
+  .cmodal-title{font-family:var(--D);font-size:clamp(34px,5vw,52px);line-height:.92;text-transform:uppercase;color:var(--red);text-align:center;margin-bottom:28px;letter-spacing:-.01em}
+  .cmodal-title .pk{color:var(--pink)}
+  .cmodal-form{display:flex;flex-direction:column;gap:16px}
+  .cfr{display:flex;flex-direction:column;gap:6px}
+  .cfr-captcha{align-items:center;margin-top:6px}
+  .cflb{font-family:var(--M);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);opacity:.7}
+  .cflb .req{color:var(--red);opacity:1}
+  .cfi{font-family:var(--S);font-size:14px;color:var(--red);background:transparent;border:none;border-bottom:1.5px solid rgba(230,48,39,.3);padding:8px 0;outline:none;transition:border-color .2s;font-weight:500}
+  .cfi::placeholder{color:rgba(230,48,39,.4)}
+  .cfi:focus{border-color:var(--red)}
+  textarea.cfi{resize:vertical;min-height:70px;padding-top:10px;font-family:var(--S)}
+  .cmodal-sub{background:var(--red);color:var(--cream);font-family:var(--M);font-size:12px;letter-spacing:.24em;text-transform:uppercase;padding:18px 28px;border:none;cursor:pointer;font-weight:500;margin-top:8px;transition:background .2s,opacity .2s}
+  .cmodal-sub:hover{background:var(--red-deep)}
+  .cmodal-sub:disabled{opacity:.5;cursor:wait}
+  .cmodal-succ{display:none;font-family:var(--M);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#0a7c2e;text-align:center;margin-top:14px;padding:14px;background:rgba(10,124,46,.08);border:1px solid rgba(10,124,46,.2)}
+  .cfr-err{display:none;font-family:var(--M);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#a00;text-align:center;margin-top:4px}
+  .cfr-err.show{display:block}
+  @media(max-width:600px){
+    .cmodal{padding:10px}
+    .cmodal-box{padding:36px 24px}
+    .cmodal-title{font-size:clamp(26px,7vw,38px)}
+    .g-recaptcha{transform:scale(.9);transform-origin:center}
+  }
+
   /* ── VENUE MAP — static image, no pins, no animation ── */
   #venue-map{background:var(--red);padding:72px 32px 64px;position:relative;overflow:hidden;color:var(--cream);}
   #venue-map .vmap-bg{position:absolute;inset:0;opacity:.06;background-image:linear-gradient(var(--cream) 1px,transparent 1px),linear-gradient(90deg,var(--cream) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
@@ -1185,11 +1219,51 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   <div class="sp3-final">
     <div class="sp3-final-eye">Get in touch</div>
     <h3 class="sp3-final-title">Contact us<br><span class="pk">and let's build it.</span></h3>
-    <a href="mailto:ask@housedecoded.com?subject=Sponsor%20Enquiry" class="sp3-final-btn" data-cur="email">Contact us <span class="ar">→</span></a>
+    <button type="button" onclick="openContactModal()" class="sp3-final-btn" data-cur="contact" style="cursor:pointer;font-family:inherit">Contact us <span class="ar">→</span></button>
     <div class="sp3-final-email">ask@housedecoded.com</div>
   </div>
 
 </section>
+
+<!-- ============ CONTACT MODAL ============ -->
+<div class="cmodal" id="cmodal" role="dialog" aria-modal="true" aria-labelledby="cmodalTitle">
+  <div class="cmodal-box">
+    <button class="cmodal-close" type="button" onclick="closeContactModal()" aria-label="Close">×</button>
+    <div class="cmodal-eye">— Get in touch —</div>
+    <h3 class="cmodal-title" id="cmodalTitle">Let's build<br><span class="pk">it together.</span></h3>
+    <form id="cmodalForm" class="cmodal-form" novalidate>
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="The Day Rave — Sponsor Enquiry">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+
+      <div class="cfr">
+        <label class="cflb" for="cName">Full Name <span class="req">*</span></label>
+        <input class="cfi" type="text" id="cName" name="full_name" required placeholder="Your full name">
+      </div>
+      <div class="cfr">
+        <label class="cflb" for="cPhone">Phone Number <span class="req">*</span></label>
+        <input class="cfi" type="tel" id="cPhone" name="phone" required placeholder="+31 6 12 34 56 78" pattern="[+0-9\s\-\(\)]{6,20}">
+      </div>
+      <div class="cfr">
+        <label class="cflb" for="cEmail">Email Address <span class="req">*</span></label>
+        <input class="cfi" type="email" id="cEmail" name="email" required placeholder="you@domain.com">
+      </div>
+      <div class="cfr">
+        <label class="cflb" for="cMsg">Message <span class="req">*</span></label>
+        <textarea class="cfi" id="cMsg" name="message" required rows="3" placeholder="Tell us about your idea or partnership"></textarea>
+      </div>
+
+      <div class="cfr cfr-captcha">
+        <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+      </div>
+
+      <div class="cfr-err" id="cmodalErr"></div>
+      <button class="cmodal-sub" type="submit" id="cmodalSub" data-cur="send">Send Enquiry →</button>
+      <div class="cmodal-succ" id="cmodalSucc">✓ Message sent! We'll be in touch shortly.</div>
+    </form>
+  </div>
+</div>
 
 <!-- ============ FAQ ============ -->
 <section id="faq">
@@ -1614,6 +1688,78 @@ async function handleInv(e){
 function showModal(){const m=document.getElementById('modal');m.style.display='flex';document.body.style.overflow='hidden';m.querySelector('.mbox').animate([{transform:'scale(.8)',opacity:0},{transform:'scale(1)',opacity:1}],{duration:350,easing:'cubic-bezier(.2,.8,.2,1)',fill:'forwards'});}
 function closeModal(){const m=document.getElementById('modal');m.style.display='none';document.body.style.overflow='';}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
+
+/* ==================== CONTACT MODAL ==================== */
+function openContactModal(){
+  const m=document.getElementById('cmodal');
+  m.classList.add('open');
+  document.body.style.overflow='hidden';
+  const succ=document.getElementById('cmodalSucc');
+  const err=document.getElementById('cmodalErr');
+  const sub=document.getElementById('cmodalSub');
+  if(succ)succ.style.display='none';
+  if(err){err.classList.remove('show');err.textContent='';}
+  if(sub){sub.disabled=false;sub.textContent='Send Enquiry →';sub.style.display='inline-flex';}
+  setTimeout(()=>{document.getElementById('cName')?.focus();},200);
+}
+function closeContactModal(){
+  const m=document.getElementById('cmodal');
+  m.classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('cmodal').addEventListener('click',e=>{if(e.target.id==='cmodal')closeContactModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('cmodal').classList.contains('open'))closeContactModal();});
+document.getElementById('cmodalForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const form=e.target;
+  const sub=document.getElementById('cmodalSub');
+  const succ=document.getElementById('cmodalSucc');
+  const err=document.getElementById('cmodalErr');
+  err.classList.remove('show');err.textContent='';
+
+  if(!form.checkValidity()){
+    err.textContent='Please fill in all required fields correctly.';
+    err.classList.add('show');
+    form.reportValidity();
+    return;
+  }
+
+  if(typeof grecaptcha!=='undefined'){
+    const captchaResp=grecaptcha.getResponse();
+    if(!captchaResp){
+      err.textContent='Please complete the reCAPTCHA.';
+      err.classList.add('show');
+      return;
+    }
+  }
+
+  sub.disabled=true;sub.textContent='Sending...';
+
+  try{
+    const formData=new FormData(form);
+    const res=await fetch('https://formsubmit.co/ajax/altscantec@gmail.com',{
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:formData
+    });
+    const data=await res.json();
+    if(res.ok&&(data.success==='true'||data.success===true)){
+      sub.style.display='none';
+      succ.style.display='block';
+      form.reset();
+      if(typeof grecaptcha!=='undefined')grecaptcha.reset();
+      setTimeout(closeContactModal,3500);
+    } else {
+      throw new Error(data.message||'Submission failed');
+    }
+  }catch(error){
+    sub.disabled=false;
+    sub.textContent='Try Again →';
+    err.textContent='Something went wrong. Please try again or email ask@housedecoded.com directly.';
+    err.classList.add('show');
+  }
+});
+
 function copyEmail(){
   navigator.clipboard.writeText('ask@housedecoded.com').then(()=>{
     const t=document.getElementById('copyToast');
