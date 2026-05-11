@@ -1,0 +1,13 @@
+# Force HTTPS + apex (Netlify handles HTTPS automatically, this is a no-op safety)
+# Canonical redirects — strip trailing slashes from query-less single segments
+# (Netlify defaults already handle most of these.)
+
+# Friendly URL: /tickets -> Eventbrite
+/tickets   https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator  302
+/buy       https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator  302
+
+# Friendly URL: /faq -> #faq anchor
+/faq       /#faq    301
+/protocol  /#acts   301
+/schedule  /#sched  301
+/contact   /#sponsors  301

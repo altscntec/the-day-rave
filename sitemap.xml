@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
+  <url>
+    <loc>https://thedayrave.com/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thedayrave.com/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://thedayrave.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://thedayrave.com/"/>
+    <image:image>
+      <image:loc>https://thedayrave.com/og-cover.jpg</image:loc>
+      <image:title>The Day Rave — Cold Plunge &amp; Coffee Rave</image:title>
+      <image:caption>A five-hour daytime wellness event combining DJ-led coffee rave with cold plunge, sauna, HIIT, Pilates, Zumba and Booty &amp; Core. Sunday 14 June 2026, Amsterdam.</image:caption>
+    </image:image>
+  </url>
+</urlset>
