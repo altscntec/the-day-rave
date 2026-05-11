@@ -160,16 +160,59 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "The Day Rave",
+  "alternateName": ["The Coffee Day Rave", "Day Rave Amsterdam"],
   "url":  "https://thedayrave.com",
   "logo": "https://thedayrave.com/logo.png",
-  "description": "Urban wellness coffee rave in Amsterdam. Cold plunge, sauna, HIIT, Pilates, Zumba and a five-hour DJ set.",
+  "description": "Urban wellness coffee rave in Amsterdam. Cold plunge, sauna, HIIT, Pilates, Zumba and a five-hour DJ set at IJland, Amsterdam Noord.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Tt. Vasumweg 171",
+    "addressLocality": "Amsterdam",
+    "addressRegion": "North Holland",
+    "postalCode": "1033 SG",
+    "addressCountry": "NL"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Amsterdam"},
+    {"@type": "Country", "name": "Netherlands"}
+  ],
+  "knowsAbout": ["Coffee Rave", "Cold Plunge", "Sauna", "Wellness Event", "Day Rave", "Amsterdam Nightlife"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "ask@housedecoded.com",
+    "contactType": "customer service",
+    "availableLanguage": ["English", "Dutch"]
+  },
   "sameAs": [
     "https://www.instagram.com/the.day.rave",
     "https://www.tiktok.com/@the.day.rave"
   ],
   "parentOrganization": {
     "@type": "Organization",
-    "name": "House Decoded Events"
+    "name": "House Decoded Events",
+    "legalName": "House Decoded",
+    "taxID": "KVK 67994725",
+    "url": "https://housedecoded.com",
+    "email": "ask@housedecoded.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kleiburg 519",
+      "addressLocality": "Amsterdam",
+      "postalCode": "1104 EA",
+      "addressCountry": "NL"
+    },
+    "subOrganization": [
+      {
+        "@type": "Organization",
+        "name": "Baila Dembow",
+        "url": "https://bailadembow.com"
+      },
+      {
+        "@type": "Organization",
+        "name": "The Day Rave",
+        "url": "https://thedayrave.com"
+      }
+    ]
   }
 }
 </script>
