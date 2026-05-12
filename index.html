@@ -160,59 +160,16 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "The Day Rave",
-  "alternateName": ["The Coffee Day Rave", "Day Rave Amsterdam"],
   "url":  "https://thedayrave.com",
   "logo": "https://thedayrave.com/logo.png",
-  "description": "Urban wellness coffee rave in Amsterdam. Cold plunge, sauna, HIIT, Pilates, Zumba and a five-hour DJ set at IJland, Amsterdam Noord.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Tt. Vasumweg 171",
-    "addressLocality": "Amsterdam",
-    "addressRegion": "North Holland",
-    "postalCode": "1033 SG",
-    "addressCountry": "NL"
-  },
-  "areaServed": [
-    {"@type": "City", "name": "Amsterdam"},
-    {"@type": "Country", "name": "Netherlands"}
-  ],
-  "knowsAbout": ["Coffee Rave", "Cold Plunge", "Sauna", "Wellness Event", "Day Rave", "Amsterdam Nightlife"],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "ask@housedecoded.com",
-    "contactType": "customer service",
-    "availableLanguage": ["English", "Dutch"]
-  },
+  "description": "Urban wellness coffee rave in Amsterdam. Cold plunge, sauna, HIIT, Pilates, Zumba and a five-hour DJ set.",
   "sameAs": [
     "https://www.instagram.com/the.day.rave",
     "https://www.tiktok.com/@the.day.rave"
   ],
   "parentOrganization": {
     "@type": "Organization",
-    "name": "House Decoded Events",
-    "legalName": "House Decoded",
-    "taxID": "KVK 67994725",
-    "url": "https://housedecoded.com",
-    "email": "ask@housedecoded.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Kleiburg 519",
-      "addressLocality": "Amsterdam",
-      "postalCode": "1104 EA",
-      "addressCountry": "NL"
-    },
-    "subOrganization": [
-      {
-        "@type": "Organization",
-        "name": "Baila Dembow",
-        "url": "https://bailadembow.com"
-      },
-      {
-        "@type": "Organization",
-        "name": "The Day Rave",
-        "url": "https://thedayrave.com"
-      }
-    ]
+    "name": "House Decoded Events"
   }
 }
 </script>
@@ -349,10 +306,10 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   .hero-type h1 .pink{color:var(--pink)}
   .hero-type h1 .stroke{-webkit-text-stroke:2px var(--cream);color:transparent}
   .hero-type .amp{font-family:var(--D);display:inline-block;transform:rotate(-8deg);padding:0 .15em;color:var(--pink)}
-  .hero-tag{font-family:var(--M);font-size:10px;letter-spacing:.32em;text-transform:uppercase;margin-top:26px;opacity:.8;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .hero-tag{font-family:var(--M);font-size:10px;letter-spacing:.32em;text-transform:uppercase;margin-top:36px;opacity:.85;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
   .hero-tag .b{width:4px;height:4px;border-radius:50%;background:var(--pink);align-self:center}
 
-  .hero-cta{display:flex;gap:10px;justify-content:center;margin-top:30px;flex-wrap:wrap;align-items:center}
+  .hero-cta{display:flex;gap:10px;justify-content:center;margin-top:40px;flex-wrap:wrap;align-items:center}
 
   /* primary CTA — Buy Tickets */
   .btn--tickets{background:var(--cream);color:var(--red);font-weight:700;font-size:12px;letter-spacing:.28em;padding:18px 30px;box-shadow:0 10px 30px rgba(0,0,0,.18),0 0 0 0 rgba(244,233,206,.5);animation:ctaPulse 2.4s ease-in-out infinite}
@@ -387,7 +344,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   .dial .lbl .s{font-family:var(--M);font-size:8px;letter-spacing:.2em;opacity:.7;margin-top:4px;color:var(--cream)}
 
   /* marquee */
-  .marquee{position:relative;overflow:hidden;background:var(--pink);color:var(--red);border-top:1.5px solid var(--red);border-bottom:1.5px solid var(--red);padding:14px 0;white-space:nowrap}
+  .marquee{position:relative;overflow:hidden;background:var(--pink);color:var(--red);border-top:1.5px solid var(--red);border-bottom:1.5px solid var(--red);padding:10px 0;white-space:nowrap}
   .marquee-track{display:inline-flex;gap:48px;animation:marquee 28s linear infinite;will-change:transform;font-family:var(--D);font-size:32px;letter-spacing:.04em;text-transform:uppercase;padding-right:48px}
   .marquee-track span{display:inline-flex;align-items:center;gap:48px}
   .marquee-track .dot{width:8px;height:8px;background:var(--red);border-radius:50%;display:inline-block}
@@ -780,10 +737,13 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     .sicon{display:none}
     footer{grid-template-columns:1fr;text-align:center;gap:16px}
     footer .fclock{text-align:center}
-    .hero-cta{flex-wrap:wrap;justify-content:center}
-    .hero-tag{flex-wrap:wrap;justify-content:center;gap:8px;font-size:11px}
+    .hero-cta{flex-wrap:wrap;justify-content:center;margin-top:32px;gap:14px}
+    .hero-tag{flex-wrap:wrap;justify-content:center;gap:6px 10px;font-size:11px;line-height:1.8;margin-top:28px;letter-spacing:.22em}
     .hero-tag .b{display:none}
-    .marquee-track span{font-size:clamp(28px,8vw,56px)}
+    /* slimmer marquee on mobile (was 8vw / up to 56px = thick band) */
+    .marquee{padding:6px 0}
+    .marquee-track{font-size:22px;gap:30px}
+    .marquee-track span{font-size:clamp(20px,5vw,28px);gap:30px}
     .acts-head{padding:0 20px 20px;margin-bottom:20px}
     #acts{padding:60px 20px}
   }
@@ -803,8 +763,15 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     .fs-l{font-size:10px!important}
     .inv-stats{grid-template-columns:1fr 1fr}
     .dial{display:none}
-    .hero-inner{padding:90px 16px 32px}
-    .hero-cta .btn{padding:12px 16px;font-size:10px}
+    .hero-inner{padding:90px 16px 36px}
+    .hero-tag{font-size:12px;margin-top:24px;letter-spacing:.2em;line-height:1.9}
+    /* bigger primary CTA so it reads as a heading-level action */
+    .hero-cta{margin-top:28px;gap:16px}
+    .hero-cta .btn--tickets{padding:16px 28px;font-size:13px;letter-spacing:.24em}
+    .hero-cta .btn--wa-ghost{padding:10px 14px;font-size:11px;letter-spacing:.2em}
+    .marquee{padding:5px 0}
+    .marquee-track{font-size:20px;gap:24px}
+    .marquee-track span{font-size:18px;gap:24px}
     .sched-inner{padding:60px 16px}
     .area{padding:24px 18px}
     .when-num{font-size:clamp(72px,22vw,140px)!important}
@@ -885,8 +852,8 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   .vmap-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;border-bottom:1.5px solid rgba(244,233,206,.25);padding-bottom:20px;margin-bottom:36px;}
   .vmap-title{font-family:var(--D);font-size:clamp(52px,8vw,110px);line-height:.86;text-transform:uppercase;letter-spacing:-.01em;color:var(--cream);margin:0;font-weight:400;}
   .vmap-sub{font-family:var(--M);font-size:10px;letter-spacing:.22em;text-transform:uppercase;max-width:200px;opacity:.8;line-height:1.9;text-align:right;color:var(--cream);margin:0;}
-  .vmap-frame{position:relative;width:100%;border:1.5px solid rgba(244,233,206,.2);overflow:hidden;background:#000;}
-  .vmap-img{width:100%;display:block;}
+  .vmap-frame{position:relative;width:100%;border:1.5px solid rgba(244,233,206,.2);overflow:hidden;background:#000;aspect-ratio:3/2}
+  .vmap-img{width:100%;height:100%;display:block;object-fit:contain;object-position:center}
   /* legend (static) */
   .vlegend{display:flex;gap:0;flex-wrap:wrap;border:1.5px solid rgba(244,233,206,.2);margin-top:20px;}
   .vleg{flex:1;min-width:120px;display:flex;align-items:center;gap:10px;padding:14px 16px;border-right:1.5px solid rgba(244,233,206,.1);}
@@ -906,6 +873,9 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     #venue-map{padding:48px 16px 52px;}
     .vmap-head{flex-direction:column;align-items:flex-start;gap:10px;}
     .vmap-sub{text-align:left;max-width:100%;}
+    /* keep the venue image in its native aspect — no stretching */
+    .vmap-frame{aspect-ratio:3/2;max-height:420px}
+    .vmap-img{object-fit:contain}
     .vlegend{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}
     .vleg{min-width:110px;padding:12px;}
     .vbar-cell{min-width:45%;}
@@ -1670,11 +1640,6 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     <span id="copyEmail" onclick="copyEmail()" style="color:var(--cream);opacity:.95;cursor:pointer;text-decoration:underline;text-underline-offset:3px" data-cur="email">ask@housedecoded.com</span><br>
     <a href="https://www.instagram.com/the.day.rave?igsh=MWJmYnozcnhtczVhag==" target="_blank" rel="noopener" style="color:var(--cream);opacity:.7;text-decoration:none" data-cur="link">Instagram ↗</a><br>
     <a href="https://www.tiktok.com/@the.day.rave?_r=1&_t=ZG-95oa7n6Z7L6" target="_blank" rel="noopener" style="color:var(--cream);opacity:.7;text-decoration:none" data-cur="link">TikTok ↗</a>
-    <!-- Sister-site cross-link — Playbook Block 2 mirror line (APPROVED) -->
-    <div style="margin-top:14px;line-height:1.7">
-      <span style="opacity:.8">Also from House Decoded:</span><br>
-      <a href="https://bailadembow.com" target="_blank" rel="noopener" style="color:var(--cream);opacity:.95;text-decoration:underline;text-underline-offset:3px" data-cur="link">Baila Dembow - Reggaeton &amp; Latin Party Amsterdam ↗</a>
-    </div>
     <div id="copyToast" style="display:none;position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:var(--red);color:var(--cream);font-family:var(--M);font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:12px 24px;border-radius:999px;z-index:9999;opacity:0;transition:opacity .3s">Email copied ✓</div>
   </div>
   <div class="fclock" id="fclock">AMS · —:—</div>
