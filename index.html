@@ -465,14 +465,31 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   .sound-title{font-family:var(--D);font-size:clamp(48px,7vw,110px);line-height:.86;text-transform:uppercase;letter-spacing:-.02em;margin:0 0 18px}
   .sound-title .pk{color:var(--pink)}
   .sound-copy{font-family:var(--S);font-size:clamp(14px,1.2vw,18px);line-height:1.6;max-width:420px;opacity:.8;margin:0 0 22px}
-  .sound-player-wrap{position:relative;border:1.5px solid var(--red);border-radius:14px;overflow:hidden;background:var(--red);box-shadow:0 20px 50px rgba(178,56,39,.18)}
-  .sound-player{display:block;width:100%;height:380px;border:0}
+  .sound-player-wrap{position:relative;border:1.5px solid var(--red);border-radius:14px;overflow:hidden;background:#191414;box-shadow:0 20px 50px rgba(178,56,39,.18);min-height:380px}
+  .sound-player{display:block;width:100%;height:380px;border:0;position:relative;z-index:2}
+  /* fallback shown if Spotify iframe is blocked or empty (mobile/content-blocker cases) */
+  .sound-fallback{position:absolute;inset:0;z-index:1;display:none;align-items:center;gap:18px;padding:22px;background:#191414;color:#fff}
+  .sound-player-wrap.has-fallback{min-height:200px}
+  .sound-player-wrap.has-fallback .sound-player{display:none}
+  .sound-player-wrap.has-fallback .sound-fallback{display:flex}
+  .sf-album-art{width:88px;height:88px;border-radius:6px;background:linear-gradient(135deg,var(--red) 0%,var(--pink) 70%,var(--cream) 100%);box-shadow:0 6px 18px rgba(0,0,0,.4);flex-shrink:0}
+  .sf-text{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+  .sf-eyebrow{font-family:var(--M);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#1DB954;opacity:.85}
+  .sf-title{font-family:var(--D);font-size:24px;line-height:1;color:#fff;letter-spacing:.01em}
+  .sf-sub{font-family:var(--S);font-size:12px;color:rgba(255,255,255,.6);margin-bottom:8px}
+  .sf-btn{display:inline-flex;align-items:center;gap:8px;background:#1DB954;color:#fff!important;text-decoration:none;font-family:var(--M);font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:10px 14px;border-radius:999px;font-weight:600;transition:background .2s,transform .15s;align-self:flex-start}
+  .sf-btn:hover{background:#1ed760;transform:translateY(-1px)}
   @media(max-width:900px){
     .sound-inner{grid-template-columns:1fr;text-align:left}
-    .sound-player{height:352px}
+    .sound-player,.sound-player-wrap{height:352px;min-height:352px}
+    .sound-player-wrap.has-fallback{min-height:180px;height:auto}
   }
   @media(max-width:600px){
-    .sound-player{height:320px}
+    .sound-player,.sound-player-wrap{height:320px;min-height:320px}
+    .sound-player-wrap.has-fallback{min-height:170px;height:auto}
+    .sound-fallback{flex-direction:row;padding:18px;gap:14px}
+    .sf-album-art{width:72px;height:72px}
+    .sf-title{font-size:20px}
   }
 
   /* ============ WHEN ============ */
@@ -1153,12 +1170,29 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
       <h2 class="sound-title">Five hours.<br><span class="pk">One BPM.</span></h2>
       <p class="sound-copy">A DJ-led day soundtrack. Press play below — this is what twelve-to-five feels like.</p>
     </div>
-    <div class="sound-player-wrap">
-      <iframe class="sound-player"
+    <div class="sound-player-wrap" id="soundPlayerWrap">
+      <iframe class="sound-player" id="soundPlayer"
         src="https://open.spotify.com/embed/playlist/1ftmMKk47W2fpKHelM8bKk?utm_source=generator&theme=0"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        allowfullscreen loading="lazy"
-        title="The Day Rave Playlist"></iframe>
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"
+        frameborder="0"
+        title="The Day Rave Playlist — listen on Spotify"></iframe>
+      <!-- fallback: shown if the Spotify iframe is blocked / fails to render -->
+      <div class="sound-fallback" id="soundFallback" aria-hidden="true">
+        <div class="sf-album">
+          <div class="sf-album-art"></div>
+        </div>
+        <div class="sf-text">
+          <div class="sf-eyebrow">Spotify Playlist</div>
+          <div class="sf-title">The Day Rave</div>
+          <div class="sf-sub">by Baila Dembow</div>
+          <a class="sf-btn" href="https://open.spotify.com/playlist/1ftmMKk47W2fpKHelM8bKk" target="_blank" rel="noopener" data-cur="play">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.301.42-1.021.599-1.561.3z"/></svg>
+            Open in Spotify
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1835,6 +1869,41 @@ onScroll();
   lanes.forEach((l,i)=>{l.style.transitionDelay=(i*80)+'ms';io.observe(l);});
   // Safety fallback: ensure visible after 2s no matter what
   setTimeout(()=>lanes.forEach(l=>l.classList.add('in')),2000);
+})();
+
+/* ==================== SPOTIFY EMBED FALLBACK ==================== */
+/* If the Spotify iframe is blocked (content blocker, tracking prevention,
+   poor network, or older mobile browsers), the iframe will fail to render
+   any content and just show a black/empty box. We detect that and swap
+   in a styled fallback panel with an "Open in Spotify" button. */
+(function spotifyFallback(){
+  const wrap = document.getElementById('soundPlayerWrap');
+  const iframe = document.getElementById('soundPlayer');
+  if(!wrap || !iframe) return;
+  let activated = false;
+  function activateFallback(){
+    if(activated) return;
+    activated = true;
+    wrap.classList.add('has-fallback');
+  }
+  function checkLoaded(){
+    // Cross-origin iframes block access to .contentDocument, so we can't
+    // inspect content. Instead: if iframe never fires 'load' within 6s,
+    // assume blocked and show fallback.
+    try{
+      // If we can read contentDocument and it's empty, it's blocked
+      if(iframe.contentDocument && iframe.contentDocument.body && iframe.contentDocument.body.children.length===0){
+        activateFallback();
+      }
+    }catch(e){
+      // expected for cross-origin — iframe is loading normally
+    }
+  }
+  let loadFired = false;
+  iframe.addEventListener('load', ()=>{ loadFired = true; setTimeout(checkLoaded, 600); });
+  iframe.addEventListener('error', activateFallback);
+  // If the iframe hasn't fired 'load' in 6 seconds, treat as blocked
+  setTimeout(()=>{ if(!loadFired) activateFallback(); }, 6000);
 })();
 
 /* ==================== SCHEDULE removed — replaced with 4-area static layout ==================== */
