@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Day Rave — Coffee Rave, Cold Plunge & Sauna in Amsterdam · 14 June 2026</title>
-<meta name="description" content="The Day Rave is a five-hour daytime wellness event in Amsterdam: DJ-led coffee rave, cold plunge, sauna, HIIT, Pilates, Zumba & Booty & Core. Sunday 14 June 2026 at IJland Amsterdam Noord. Tickets from €12.21.">
+<meta name="description" content="The Day Rave is a five-hour daytime wellness event in Amsterdam: DJ-led coffee rave, cold plunge, sauna, HIIT, Pilates, Zumba & Booty & Core. Sunday 14 June 2026 at IJland Amsterdam Noord. Tickets from €17.50.">
 <meta property="og:title" content="The Day Rave — Coffee Rave, Cold Plunge & Sauna in Amsterdam · 14 June 2026">
-<meta property="og:description" content="A five-hour daytime wellness event in Amsterdam: DJ-led coffee rave, cold plunge, sauna, HIIT, Pilates, Zumba & Booty & Core. Sunday 14 June 2026 at IJland. Tickets from €12.21.">
+<meta property="og:description" content="A five-hour daytime wellness event in Amsterdam: DJ-led coffee rave, cold plunge, sauna, HIIT, Pilates, Zumba & Booty & Core. Sunday 14 June 2026 at IJland. Tickets from €17.50.">
 <meta property="og:url" content="https://thedayrave.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@the.day.rave">
 <meta name="twitter:title" content="The Day Rave — Coffee Rave, Cold Plunge & Sauna in Amsterdam · 14 June 2026">
-<meta name="twitter:description" content="A five-hour daytime wellness event in Amsterdam: DJ-led coffee rave, cold plunge, sauna, HIIT, Pilates, Zumba & Booty & Core. Sunday 14 June 2026 at IJland. Tickets from €12.21.">
+<meta name="twitter:description" content="A five-hour daytime wellness event in Amsterdam: DJ-led coffee rave, cold plunge, sauna, HIIT, Pilates, Zumba & Booty & Core. Sunday 14 June 2026 at IJland. Tickets from €17.50.">
 <meta name="twitter:image" content="https://thedayrave.com/og-cover.jpg">
 <meta property="og:image" content="https://thedayrave.com/og-cover.jpg">
 <meta property="og:image:width" content="1200">
@@ -61,24 +61,24 @@
     { "@type": "Offer",
       "name": "Only Rave",
       "url":  "https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748",
-      "price": "12.21", "priceCurrency": "EUR",
+      "price": "17.50", "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "validFrom": "2026-01-01T00:00:00+01:00" },
     { "@type": "Offer",
       "name": "Studio Classes + Rave",
       "url":  "https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748",
-      "price": "20.07", "priceCurrency": "EUR",
+      "price": "27.50", "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock" },
     { "@type": "Offer",
       "name": "Sauna + Cold Plunges + Rave",
       "url":  "https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748",
-      "price": "22.17", "priceCurrency": "EUR",
+      "price": "34.50", "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock" },
     { "@type": "Offer",
       "name": "All Access Pass",
       "url":  "https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748",
-      "price": "27.41", "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock" }
+      "price": "44.00", "priceCurrency": "EUR",
+      "availability": "https://schema.org/OutOfStock" }
   ],
   "organizer": {
     "@type": "Organization",
@@ -277,21 +277,23 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   section{min-height:100vh;position:relative;overflow:hidden}
 
   /* ============ HERO ============ */
-  #hero{background:var(--red);color:var(--cream);display:flex;align-items:center;justify-content:center;padding:0;min-height:auto}
+  #hero{background:var(--red);color:var(--cream);display:flex;align-items:center;justify-content:center;padding:0;min-height:100vh;position:relative;overflow:hidden}
   .hero-grid{position:absolute;inset:0;opacity:.06;background-image:linear-gradient(var(--cream) 1px,transparent 1px),linear-gradient(90deg,var(--cream) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
-  .hero-inner{position:relative;z-index:3;width:100%;max-width:1400px;padding:120px 32px 60px;display:grid;grid-template-columns:1fr auto 1fr;gap:40px;align-items:center}
-  .hero-side{font-family:var(--M);font-size:10px;letter-spacing:.22em;text-transform:uppercase;line-height:1.9;opacity:.7}
+  .hero-bg-glow{position:absolute;inset:-20%;border-radius:50%;pointer-events:none;animation:heroBgPulse 7s ease-in-out infinite}
+  @keyframes heroBgPulse{0%,100%{transform:scale(1);opacity:.08}50%{transform:scale(1.2);opacity:.12}}
+  .hero-inner{position:relative;z-index:3;width:100%;max-width:1400px;padding:80px 32px;display:grid;grid-template-columns:1fr auto 1fr;gap:40px;align-items:center;justify-items:center}
+  .hero-side{font-family:var(--M);font-size:10px;letter-spacing:.22em;text-transform:uppercase;line-height:1.9;opacity:.7;justify-self:start;align-self:center}
   .hero-side .row{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid rgba(244,233,206,.15);padding:8px 0}
   .hero-side .row:last-child{border-bottom:none}
   .hero-side .k{opacity:.55}
-  .hero-side.right{text-align:right}
+  .hero-side.right{text-align:right;justify-self:end}
 
   .hero-type{text-align:center;position:relative}
   .hero-type h1{font-family:var(--D);font-size:clamp(62px,12vw,180px);line-height:.82;letter-spacing:-.01em;color:var(--cream);text-transform:uppercase;margin:0}
   .hero-logo-wrap{margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:4px;line-height:.82;user-select:none}
   .hero-logo-row{font-family:var(--D);text-transform:uppercase;display:flex;justify-content:center;align-items:baseline;color:var(--pink);letter-spacing:-.01em}
-  .hero-logo-the{font-size:clamp(22px,3.6vw,56px);letter-spacing:.6em;padding-left:.6em}
-  .hero-logo-coffee{font-size:clamp(56px,11vw,150px);letter-spacing:-.02em}
+  .hero-logo-the{font-size:clamp(18px,2.8vw,44px);letter-spacing:.8em;padding-left:.8em;color:rgba(244,233,206,.5);opacity:.7}
+  .hero-logo-coffee{font-size:clamp(56px,11vw,150px);letter-spacing:-.02em;color:var(--pink)}
   .hero-logo-bottom{font-size:clamp(56px,11vw,150px);letter-spacing:-.02em;gap:.08em}
   .hero-logo-bottom .day{color:var(--cream)}
   .hero-logo-bottom .rave{color:var(--pink)}
@@ -741,9 +743,10 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   .drip{position:absolute;background:var(--pink);width:6px;border-radius:0 0 50% 50%;top:-4px;opacity:.8}
 
   @media(max-width:900px){
-    .hero-inner{grid-template-columns:1fr;padding:100px 20px 40px;gap:24px}
+    .hero-inner{grid-template-columns:1fr;padding:80px 20px 40px;gap:24px}
     #hero{min-height:auto}
     .hero-side{display:none}
+    .hero-type{justify-self:center !important}
     .acts-wrap{grid-template-columns:1fr !important;grid-auto-rows:auto}
     .act--big{grid-column:1 !important;grid-row:span 1 !important}
     .act--span2{grid-column:1 !important}
@@ -916,7 +919,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   <div class="nls">
     <a href="#acts"  class="na">Protocol</a>
     <a href="#sched" class="na">Schedule</a>
-    <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener" class="na na--cta" data-cur="tickets">Buy Tickets</a>
+    <a href="#" onclick="openCheckoutModal();return false" class="na na--cta" data-cur="tickets">Buy Tickets</a>
     <a href="#faq" class="na na--faq">FAQ</a>
     <div class="lang-toggle">
       <button class="lang-btn" id="langNL" onclick="setLang('nl')" data-cur="NL">NL</button>
@@ -929,6 +932,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
 <!-- ============ HERO ============ -->
 <section id="hero">
   <div class="hero-grid"></div>
+  <div class="hero-bg-glow" style="background:var(--pink);width:600px;height:600px;left:50%;top:50%;transform:translate(-50%,-50%)"></div>
   <canvas id="heroC" style="position:absolute;inset:0;z-index:1;pointer-events:none"></canvas>
 
   <div class="hero-inner">
@@ -940,7 +944,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
       <div class="row"><span class="k">Status</span><span style="color:var(--pink)">● Open</span></div>
     </div>
 
-    <div class="hero-type">
+    <div class="hero-type" style="justify-self:center;align-self:center">
       <h1 class="hero-logo-wrap" aria-label="The Coffee Day Rave">
         <span class="hero-logo-row hero-logo-the">The</span>
         <span class="hero-logo-row hero-logo-coffee">Coffee</span>
@@ -952,7 +956,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
         <span>12:00 — 17:00</span>
       </div>
       <div class="hero-cta">
-        <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener" class="btn btn--tickets" data-cur="tickets">Buy Tickets →</a>
+        <a href="#" onclick="openCheckoutModal();return false" class="btn btn--tickets" data-cur="tickets">Buy Tickets →</a>
         <a href="https://chat.whatsapp.com/Hbyg4XitpbQDC8Hm7uv0HZ" target="_blank" rel="noopener" class="btn btn--wa-ghost" data-cur="join">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.463 3.488A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           <span id="waText">Join Community</span>
@@ -1015,11 +1019,11 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     <span class="word"><span class="pink" data-split>Alive.</span></span>
   </h2>
   <div class="feel-stats" id="feelStats">
-    <div class="feel-stat" data-target="3" data-suffix="°C" data-dec="0"><div class="fs-i">01</div><div class="fs-v" data-v>0°C</div><div class="fs-l">Cold Plunge</div></div>
-    <div class="feel-stat" data-target="90" data-suffix="°C" data-dec="0"><div class="fs-i">02</div><div class="fs-v" data-v>0°C</div><div class="fs-l">Sauna</div></div>
-    <div class="feel-stat" data-target="4" data-suffix="" data-dec="0"><div class="fs-i">03</div><div class="fs-v" data-v>0</div><div class="fs-l">Areas</div></div>
-    <div class="feel-stat" data-target="4" data-suffix="" data-dec="0"><div class="fs-i">04</div><div class="fs-v" data-v>0</div><div class="fs-l">Zumba · HIIT · Pilates · Booty &amp; Core</div></div>
-    <div class="feel-stat" data-target="400" data-suffix="" data-dec="0"><div class="fs-i">05</div><div class="fs-v" data-v>0</div><div class="fs-l">Max Day Capacity</div></div>
+    <div class="feel-stat" data-target="3" data-suffix="°C" data-dec="0"><div class="fs-i">01</div><div class="fs-v" data-v>3°C</div><div class="fs-l">Cold Plunge</div></div>
+    <div class="feel-stat" data-target="90" data-suffix="°C" data-dec="0"><div class="fs-i">02</div><div class="fs-v" data-v>90°C</div><div class="fs-l">Sauna</div></div>
+    <div class="feel-stat" data-target="4" data-suffix="" data-dec="0"><div class="fs-i">03</div><div class="fs-v" data-v>4</div><div class="fs-l">Areas</div></div>
+    <div class="feel-stat" data-target="4" data-suffix="" data-dec="0"><div class="fs-i">04</div><div class="fs-v" data-v>4</div><div class="fs-l">Zumba · HIIT · Pilates · Booty &amp; Core</div></div>
+    <div class="feel-stat" data-target="400" data-suffix="" data-dec="0"><div class="fs-i">05</div><div class="fs-v" data-v>400</div><div class="fs-l">Max Day Capacity</div></div>
   </div>
 </section>
 
@@ -1332,8 +1336,10 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
       <div class="vbar-cell"><span class="vbar-k">Venue</span><span class="vbar-v">IJland AMS</span></div>
       <div class="vbar-cell"><span class="vbar-k">Date</span><span class="vbar-v">14 Jun 2026</span></div>
       <div class="vbar-cell"><span class="vbar-k">Time</span><span class="vbar-v">12:00–17:00</span></div>
-      <div class="vbar-cell"><span class="vbar-k">From</span><span class="vbar-v">€12</span></div>
-      <div class="vbar-cell"><a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" class="vbar-btn">Buy Tickets →</a></div>
+      <div class="vbar-cell"><span class="vbar-k">From</span><span class="vbar-v">€17</span></div>
+      <div class="vbar-cell">
+        <a href="#" onclick="openCheckoutModal();return false" class="vbar-btn">Buy Tickets →</a>
+      </div>
     </div>
 
   </div><!-- /vmap-inner -->
@@ -1348,9 +1354,9 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
       <div class="inv-sub">A new kind of Sunday. Cold plunge, sauna, HIIT, Pilates, Zumba — all wrapped in a five-hour coffee rave. Active urban wellness, built for Amsterdam.</div>
       <div class="inv-stats" id="invStats">
         <div class="inum" data-target="5" data-prefix="" data-suffix="h" data-dec="0"><div class="iv" data-v>0h</div><div class="il">Of Coffee Rave</div><div class="igr"><i style="--h:30%"></i><i style="--h:45%"></i><i style="--h:55%"></i><i style="--h:68%"></i><i style="--h:75%"></i><i style="--h:82%"></i></div></div>
-        <div class="inum" data-target="6" data-suffix="" data-dec="0"><div class="iv" data-v>0</div><div class="il">Activities</div><div class="igr"><i style="--h:40%"></i><i style="--h:55%"></i><i style="--h:65%"></i><i style="--h:75%"></i><i style="--h:88%"></i><i style="--h:100%"></i></div></div>
-        <div class="inum" data-target="3" data-prefix="" data-suffix="°C" data-dec="0"><div class="iv" data-v>0°C</div><div class="il">Plunge Temp</div><div class="igr"><i style="--h:85%"></i><i style="--h:72%"></i><i style="--h:60%"></i><i style="--h:48%"></i><i style="--h:38%"></i><i style="--h:30%"></i></div></div>
-        <div class="inum" data-target="400" data-suffix="" data-dec="0"><div class="iv" data-v>0</div><div class="il">Spots · June '26</div><div class="igr"><i style="--h:20%"></i><i style="--h:35%"></i><i style="--h:55%"></i><i style="--h:70%"></i><i style="--h:85%"></i><i style="--h:100%"></i></div></div>
+        <div class="inum" data-target="6" data-suffix="" data-dec="0"><div class="iv" data-v>6</div><div class="il">Activities</div><div class="igr"><i style="--h:40%"></i><i style="--h:55%"></i><i style="--h:65%"></i><i style="--h:75%"></i><i style="--h:88%"></i><i style="--h:100%"></i></div></div>
+        <div class="inum" data-target="3" data-prefix="" data-suffix="°C" data-dec="0"><div class="iv" data-v>3°C</div><div class="il">Plunge Temp</div><div class="igr"><i style="--h:85%"></i><i style="--h:72%"></i><i style="--h:60%"></i><i style="--h:48%"></i><i style="--h:38%"></i><i style="--h:30%"></i></div></div>
+        <div class="inum" data-target="400" data-suffix="" data-dec="0"><div class="iv" data-v>400</div><div class="il">Spots · June '26</div><div class="igr"><i style="--h:20%"></i><i style="--h:35%"></i><i style="--h:55%"></i><i style="--h:70%"></i><i style="--h:85%"></i><i style="--h:100%"></i></div></div>
       </div>
     </div>
 
@@ -1501,6 +1507,14 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   </div>
 </div>
 
+<!-- ============ EVENTBRITE CHECKOUT MODAL ============ -->
+<div class="cmodal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+  <div class="cmodal-box" style="max-width:900px;padding:0;overflow:hidden">
+    <button class="cmodal-close" type="button" onclick="closeCheckoutModal()" aria-label="Close">×</button>
+    <div id="eventbrite-widget-container" style="width:100%;min-height:600px"></div>
+  </div>
+</div>
+
 <!-- ============ FAQ ============ -->
 <section id="faq">
   <div class="faq-inner">
@@ -1534,10 +1548,10 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
         </div>
         <div class="faq-a"><div class="faq-a-inner">There are four ticket tiers (prices include service fees):
           <ul class="faq-tiers">
-            <li><span class="faq-tier-name">Only Rave</span><span class="faq-tier-price">€12.21</span><span>Access to the coffee rave and main stage DJ set</span></li>
-            <li><span class="faq-tier-name">Studio Classes + Rave</span><span class="faq-tier-price">€20.07</span><span>Coffee rave plus studio classes (Pilates, Booty &amp; Core)</span></li>
-            <li><span class="faq-tier-name">Sauna + Cold Plunges + Rave</span><span class="faq-tier-price">€22.17</span><span>Coffee rave plus guided sauna and cold plunge sessions</span></li>
-            <li><span class="faq-tier-name">All Access Pass</span><span class="faq-tier-price">€27.41</span><span>Everything. Full access to coffee rave, all classes, sauna, and cold plunge</span></li>
+            <li><span class="faq-tier-name">Only Rave</span><span class="faq-tier-price">€17.50</span><span>Access to the coffee rave and main stage DJ set, plus Zumba and HIIT classes.</span></li>
+            <li><span class="faq-tier-name">Studio Classes + Rave</span><span class="faq-tier-price">€27.50</span><span>Coffee rave plus a studio class (Pilates or Booty and Core).</span></li>
+            <li><span class="faq-tier-name">Sauna + Cold Plunge + Rave</span><span class="faq-tier-price">€34.50</span><span>Coffee rave plus a guided sauna and cold plunge session.</span></li>
+            <li><span class="faq-tier-name">All Access Pass</span><span class="faq-tier-price">Sold Out</span><span>This tier has reached capacity.</span></li>
           </ul>
           All tickets available on <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener">Eventbrite</a>.</div></div>
       </div>
@@ -1690,8 +1704,8 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
 <div class="modal" id="modal" role="dialog" aria-modal="true">
   <div class="mbox" id="mbox">
     <button class="mc" onclick="closeModal()" aria-label="Close">✕</button>
-    <div class="mt">Coming<br>soon.</div>
-    <div class="ms">Tickets drop shortly.<br>Join the community first.</div>
+    <div class="mt">Tickets<br>are live.</div>
+    <div class="ms">Join the community<br>to get updates.</div>
     <a href="https://chat.whatsapp.com/Hbyg4XitpbQDC8Hm7uv0HZ" target="_blank" rel="noopener" class="mb" onclick="closeModal()">Join community →</a>
   </div>
 </div>
@@ -1843,18 +1857,28 @@ onScroll();
 (function countdown(){
   const target=new Date('2026-06-14T12:00:00+02:00').getTime();
   const D=document.getElementById('cdD'),H=document.getElementById('cdH'),M=document.getElementById('cdM'),S=document.getElementById('cdS');
-  const N=document.getElementById('ncd'),HCD=document.getElementById('hCD');
-  function t(){
-    const diff=target-Date.now();if(diff<=0){D.textContent='00';H.textContent='LIVE';M.textContent='NOW';S.textContent='';return}
+  const N=document.getElementById('ncd'),HCD=document.getElementById('hCD'),fclock=document.getElementById('fclock');
+
+  function tick(){
+    const diff=Math.max(0,target-Date.now());
+    if(diff<=0){
+      if(D)D.textContent='00';
+      if(H)H.textContent='LIVE';
+      if(M)M.textContent='NOW';
+      if(S)S.textContent='';
+      return;
+    }
     const d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60,s=Math.floor(diff/1000)%60;
-    D.textContent=String(d).padStart(2,'0');H.textContent=String(h).padStart(2,'0');
-    M.textContent=String(m).padStart(2,'0');S.textContent=String(s).padStart(2,'0');
-    N.textContent='T−'+d+'d '+String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+    if(D)D.textContent=String(d).padStart(2,'0');
+    if(H)H.textContent=String(h).padStart(2,'0');
+    if(M)M.textContent=String(m).padStart(2,'0');
+    if(S)S.textContent=String(s).padStart(2,'0');
+    if(N)N.textContent='T−'+d+'d '+String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
     if(HCD)HCD.textContent='T−'+d+' days';
-    // footer clock
-    const now=new Date();document.getElementById('fclock').textContent='AMS · '+now.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    if(fclock){const now=new Date();fclock.textContent='AMS · '+now.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}
   }
-  t();setInterval(t,1000);
+  tick();
+  setInterval(tick,1000);
 })();
 
 /* ==================== SPONSORS LANE REVEAL ==================== */
@@ -1984,6 +2008,28 @@ function closeContactModal(){
 }
 document.getElementById('cmodal').addEventListener('click',e=>{if(e.target.id==='cmodal')closeContactModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('cmodal').classList.contains('open'))closeContactModal();});
+
+/* ==================== EVENTBRITE CHECKOUT MODAL ==================== */
+function openCheckoutModal(){
+  const m=document.getElementById('checkoutModal');
+  m.style.display='flex';
+  document.body.style.overflow='hidden';
+  if(window.EBWidgets&&!window.ebWidgetLoaded){
+    window.EBWidgets.createWidget({
+      widgetType:'checkout',
+      eventId:'1988484526748',
+      iFrameContainerId:'eventbrite-widget-container'
+    });
+    window.ebWidgetLoaded=true;
+  }
+}
+function closeCheckoutModal(){
+  const m=document.getElementById('checkoutModal');
+  m.style.display='none';
+  document.body.style.overflow='';
+}
+document.getElementById('checkoutModal').addEventListener('click',e=>{if(e.target.id==='checkoutModal')closeCheckoutModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('checkoutModal').style.display==='flex')closeCheckoutModal();});
 document.getElementById('cmodalForm').addEventListener('submit',async function(e){
   e.preventDefault();
   const form=e.target;
@@ -2271,8 +2317,8 @@ function setLang(lang){
     'Zondag 14 juni 2026, 12:00 tot 17:00 bij IJland, 171 Tt. Vasumweg, 1033 SG Amsterdam.');
   t('.faq-item:nth-child(3) .faq-qt','How much are tickets?','Hoeveel kosten tickets?');
   h('.faq-item:nth-child(3) .faq-a-inner',
-    'There are four ticket tiers (prices include service fees):<ul class="faq-tiers"><li><span class="faq-tier-name">Only Rave</span><span class="faq-tier-price">€12.21</span><span>Access to the coffee rave and main stage DJ set</span></li><li><span class="faq-tier-name">Studio Classes + Rave</span><span class="faq-tier-price">€20.07</span><span>Coffee rave plus studio classes (Pilates, Booty &amp; Core)</span></li><li><span class="faq-tier-name">Sauna + Cold Plunges + Rave</span><span class="faq-tier-price">€22.17</span><span>Coffee rave plus guided sauna and cold plunge sessions</span></li><li><span class="faq-tier-name">All Access Pass</span><span class="faq-tier-price">€27.41</span><span>Everything. Full access to coffee rave, all classes, sauna, and cold plunge</span></li></ul>All tickets available on <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener">Eventbrite</a>.',
-    'Er zijn vier ticketcategorieën (prijzen inclusief servicekosten):<ul class="faq-tiers"><li><span class="faq-tier-name">Only Rave</span><span class="faq-tier-price">€12,21</span><span>Toegang tot de coffee rave en main stage DJ-set</span></li><li><span class="faq-tier-name">Studio Classes + Rave</span><span class="faq-tier-price">€20,07</span><span>Coffee rave plus studiolessen (Pilates, Booty &amp; Core)</span></li><li><span class="faq-tier-name">Sauna + Cold Plunges + Rave</span><span class="faq-tier-price">€22,17</span><span>Coffee rave plus begeleide sauna- en ijsbadsessies</span></li><li><span class="faq-tier-name">All Access Pass</span><span class="faq-tier-price">€27,41</span><span>Alles. Volledige toegang tot coffee rave, alle lessen, sauna en ijsbad</span></li></ul>Alle tickets beschikbaar op <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener">Eventbrite</a>.');
+    'There are four ticket tiers. Prices include all service fees.<br><br>Only Rave — €17.50<br>Access to the coffee rave and main stage DJ set, plus Zumba and HIIT classes.<br><br>Studio Classes + Rave — €27.50<br>Coffee rave plus a studio class (Pilates or Booty and Core).<br><br>Sauna + Cold Plunge + Rave — €34.50<br>Coffee rave plus a guided sauna and cold plunge session.<br><br>All Access Pass — Sold Out<br>This tier has reached capacity.<br><br>All other tickets available on <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener">Eventbrite</a>.',
+    'Er zijn vier ticketcategorieën. Prijzen inclusief alle servicekosten.<br><br>Only Rave — €17,50<br>Toegang tot de coffee rave en main stage DJ-set, plus Zumba en HIIT klassen.<br><br>Studio Classes + Rave — €27,50<br>Coffee rave plus een studioles (Pilates of Booty and Core).<br><br>Sauna + Cold Plunge + Rave — €34,50<br>Coffee rave plus een begeleide sauna- en ijsbadsessie.<br><br>All Access Pass — Uitverkocht<br>Deze categorie is vol.<br><br>Alle andere tickets beschikbaar op <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener">Eventbrite</a>.');
   t('.faq-item:nth-child(4) .faq-qt','Do I need to book classes or plunge sessions in advance?','Moet ik lessen of ijsbadsessies vooraf boeken?');
   t('.faq-item:nth-child(4) .faq-a-inner',
     'No. Tickets are limited and access is first come, first served on the day. Cold plunge, sauna, and studio classes run in scheduled time slots, so arrive early if those are a priority.',
@@ -2329,6 +2375,13 @@ function setLang(lang){
   if(saved==='nl')setLang('nl');
 })();
 
+/* Load Eventbrite Widget */
+(function(){
+  const script=document.createElement('script');
+  script.src='https://www.eventbrite.com/static/widgets/eb_widgets.js';
+  script.async=true;
+  document.head.appendChild(script);
+})();
 
 </script>
 </body>
