@@ -1511,7 +1511,27 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
 <div class="cmodal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
   <div class="cmodal-box" style="max-width:900px;padding:0;overflow:hidden">
     <button class="cmodal-close" type="button" onclick="closeCheckoutModal()" aria-label="Close">×</button>
-    <div id="eventbrite-widget-container" style="width:100%;min-height:600px"></div>
+    <div id="eventbrite-widget-container-1988484526748"></div>
+    <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+    <script type="text/javascript">
+      var exampleCallback = function() {
+        console.log('Order complete!');
+      };
+      if(window.EBWidgets){
+        window.EBWidgets.createWidget({
+          widgetType: 'checkout',
+          eventId: '1988484526748',
+          iframeContainerId: 'eventbrite-widget-container-1988484526748',
+          iframeContainerHeight: 425,
+          themeSettings: {
+            brandColor: '#c8242b',
+            fontColor: '#000000',
+            background: '#fff8e9'
+          },
+          onOrderComplete: exampleCallback
+        });
+      }
+    </script>
   </div>
 </div>
 
@@ -2012,24 +2032,16 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElement
 /* ==================== EVENTBRITE CHECKOUT MODAL ==================== */
 function openCheckoutModal(){
   const m=document.getElementById('checkoutModal');
-  m.style.display='flex';
+  m.classList.add('open');
   document.body.style.overflow='hidden';
-  if(window.EBWidgets&&!window.ebWidgetLoaded){
-    window.EBWidgets.createWidget({
-      widgetType:'checkout',
-      eventId:'1988484526748',
-      iFrameContainerId:'eventbrite-widget-container'
-    });
-    window.ebWidgetLoaded=true;
-  }
 }
 function closeCheckoutModal(){
   const m=document.getElementById('checkoutModal');
-  m.style.display='none';
+  m.classList.remove('open');
   document.body.style.overflow='';
 }
 document.getElementById('checkoutModal').addEventListener('click',e=>{if(e.target.id==='checkoutModal')closeCheckoutModal();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('checkoutModal').style.display==='flex')closeCheckoutModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('checkoutModal').classList.contains('open'))closeCheckoutModal();});
 document.getElementById('cmodalForm').addEventListener('submit',async function(e){
   e.preventDefault();
   const form=e.target;
