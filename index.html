@@ -919,7 +919,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   <div class="nls">
     <a href="#acts"  class="na">Protocol</a>
     <a href="#sched" class="na">Schedule</a>
-    <a href="#" onclick="openCheckoutModal();return false" class="na na--cta" data-cur="tickets">Buy Tickets</a>
+    <button id="eventbrite-widget-modal-trigger-1988484526748" type="button" class="na na--cta" data-cur="tickets">Buy Tickets</button>
     <a href="#faq" class="na na--faq">FAQ</a>
     <div class="lang-toggle">
       <button class="lang-btn" id="langNL" onclick="setLang('nl')" data-cur="NL">NL</button>
@@ -956,7 +956,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
         <span>12:00 — 17:00</span>
       </div>
       <div class="hero-cta">
-        <a href="#" onclick="openCheckoutModal();return false" class="btn btn--tickets" data-cur="tickets">Buy Tickets →</a>
+        <button id="eventbrite-widget-modal-trigger-1988484526748" type="button" class="btn btn--tickets" data-cur="tickets">Buy Tickets →</button>
         <a href="https://chat.whatsapp.com/Hbyg4XitpbQDC8Hm7uv0HZ" target="_blank" rel="noopener" class="btn btn--wa-ghost" data-cur="join">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.463 3.488A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           <span id="waText">Join Community</span>
@@ -1338,7 +1338,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
       <div class="vbar-cell"><span class="vbar-k">Time</span><span class="vbar-v">12:00–17:00</span></div>
       <div class="vbar-cell"><span class="vbar-k">From</span><span class="vbar-v">€17</span></div>
       <div class="vbar-cell">
-        <a href="#" onclick="openCheckoutModal();return false" class="vbar-btn">Buy Tickets →</a>
+        <button id="eventbrite-widget-modal-trigger-1988484526748" type="button" class="vbar-btn">Buy Tickets →</button>
       </div>
     </div>
 
@@ -1507,33 +1507,9 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   </div>
 </div>
 
-<!-- ============ EVENTBRITE CHECKOUT MODAL ============ -->
-<div class="cmodal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
-  <div class="cmodal-box" style="max-width:900px;padding:0;overflow:hidden">
-    <button class="cmodal-close" type="button" onclick="closeCheckoutModal()" aria-label="Close">×</button>
-    <div id="eventbrite-widget-container-1988484526748"></div>
-    <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
-    <script type="text/javascript">
-      var exampleCallback = function() {
-        console.log('Order complete!');
-      };
-      if(window.EBWidgets){
-        window.EBWidgets.createWidget({
-          widgetType: 'checkout',
-          eventId: '1988484526748',
-          iframeContainerId: 'eventbrite-widget-container-1988484526748',
-          iframeContainerHeight: 425,
-          themeSettings: {
-            brandColor: '#c8242b',
-            fontColor: '#000000',
-            background: '#fff8e9'
-          },
-          onOrderComplete: exampleCallback
-        });
-      }
-    </script>
-  </div>
-</div>
+<!-- ============ EVENTBRITE CHECKOUT BUTTON ============ -->
+<!-- Noscript content for added SEO -->
+<noscript><a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748" rel="noopener noreferrer" target="_blank">Buy Tickets on Eventbrite</a></noscript>
 
 <!-- ============ FAQ ============ -->
 <section id="faq">
@@ -2029,19 +2005,7 @@ function closeContactModal(){
 document.getElementById('cmodal').addEventListener('click',e=>{if(e.target.id==='cmodal')closeContactModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('cmodal').classList.contains('open'))closeContactModal();});
 
-/* ==================== EVENTBRITE CHECKOUT MODAL ==================== */
-function openCheckoutModal(){
-  const m=document.getElementById('checkoutModal');
-  m.classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeCheckoutModal(){
-  const m=document.getElementById('checkoutModal');
-  m.classList.remove('open');
-  document.body.style.overflow='';
-}
-document.getElementById('checkoutModal').addEventListener('click',e=>{if(e.target.id==='checkoutModal')closeCheckoutModal();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('checkoutModal').classList.contains('open'))closeCheckoutModal();});
+/* ==================== CONTACT MODAL (managed separately) ==================== */
 document.getElementById('cmodalForm').addEventListener('submit',async function(e){
   e.preventDefault();
   const form=e.target;
@@ -2387,11 +2351,32 @@ function setLang(lang){
   if(saved==='nl')setLang('nl');
 })();
 
-/* Load Eventbrite Widget */
+/* ==================== EVENTBRITE CHECKOUT MODAL ==================== */
+var exampleCallback = function() {
+  console.log('Order complete!');
+};
+
+// Load Eventbrite script and initialize widget
 (function(){
   const script=document.createElement('script');
   script.src='https://www.eventbrite.com/static/widgets/eb_widgets.js';
   script.async=true;
+  script.onload=function(){
+    if(window.EBWidgets){
+      window.EBWidgets.createWidget({
+        widgetType: 'checkout',
+        eventId: '1988484526748',
+        themeSettings: {
+          brandColor: '#c8242b',
+          fontColor: '#000000',
+          background: '#fff8e9'
+        },
+        modal: true,
+        modalTriggerElementId: 'eventbrite-widget-modal-trigger-1988484526748',
+        onOrderComplete: exampleCallback
+      });
+    }
+  };
   document.head.appendChild(script);
 })();
 
