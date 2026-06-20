@@ -313,19 +313,56 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
 
   .hero-cta{display:flex;gap:10px;justify-content:center;margin-top:40px;flex-wrap:wrap;align-items:center}
 
-  /* ===== HERO COUNTDOWN ===== */
-  .hero-countdown{display:flex;gap:10px;justify-content:center;margin-top:28px;flex-wrap:nowrap}
-  .hero-cd-label{font-family:var(--M);font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream);opacity:.7;text-align:center;margin-top:24px;display:block}
-  .hcd{min-width:64px;text-align:center;padding:14px 10px;background:rgba(244,233,206,.08);border:1px solid rgba(244,233,206,.18);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:transform .3s ease}
-  .hcd:hover{transform:translateY(-2px);background:rgba(244,233,206,.14)}
-  .hcd-v{font-family:var(--D);font-size:32px;line-height:1;color:var(--cream);font-variant-numeric:tabular-nums}
-  .hcd-l{font-family:var(--M);font-size:8px;letter-spacing:.22em;text-transform:uppercase;opacity:.7;margin-top:6px;color:var(--cream)}
+  /* ===== HERO BREWING BOX ===== */
+  .brewing-box{margin-top:28px;padding:24px 24px;background:rgba(244,233,206,.06);border:1px solid rgba(244,233,206,.2);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);text-align:center;animation:brewPulse 3.5s ease-in-out infinite}
+  .brewing-eye{font-family:var(--M);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream);opacity:.7;margin-bottom:10px}
+  .brewing-title{font-family:var(--D);font-size:clamp(28px,4vw,42px);line-height:.95;text-transform:uppercase;color:var(--cream);letter-spacing:-.01em}
+  .brewing-title .pk{color:var(--pink)}
+  .brewing-sub{font-family:var(--M);font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.75;color:var(--cream);margin-top:14px;line-height:1.5}
+  @keyframes brewPulse{0%,100%{box-shadow:0 0 0 0 rgba(244,233,206,.15)}50%{box-shadow:0 0 0 12px rgba(244,233,206,0)}}
   @media (max-width:600px){
-    .hero-countdown{gap:6px;margin-top:22px}
-    .hcd{min-width:54px;padding:10px 6px}
-    .hcd-v{font-size:24px}
-    .hcd-l{font-size:7px;letter-spacing:.18em}
+    .brewing-box{margin-top:22px;padding:20px 16px}
+    .brewing-title{font-size:clamp(22px,7vw,32px)}
+    .brewing-sub{font-size:10px}
   }
+
+  /* ===== NOTIFY + FEEDBACK SECTION ===== */
+  #notify-form{background:var(--cream);color:var(--red);padding:100px 32px}
+  .nf-inner{max-width:1100px;margin:0 auto}
+  .nf-head{text-align:center;margin-bottom:48px}
+  .nf-eye{font-family:var(--M);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--red);opacity:.6;margin-bottom:18px}
+  .nf-title{font-family:var(--D);font-size:clamp(50px,9vw,110px);line-height:.9;text-transform:uppercase;letter-spacing:-.01em}
+  .nf-title .pk{color:var(--pink)}
+  .nf-sub{font-family:var(--M);font-size:13px;letter-spacing:.16em;text-transform:uppercase;opacity:.7;margin-top:20px;line-height:1.6;max-width:640px;margin-left:auto;margin-right:auto}
+  .nf-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:64px}
+  .nf-card{background:var(--red);color:var(--cream);padding:40px 36px;border:1.5px solid var(--red)}
+  .nf-card-eye{font-family:var(--M);font-size:10px;letter-spacing:.32em;text-transform:uppercase;opacity:.6;margin-bottom:14px}
+  .nf-card-title{font-family:var(--D);font-size:clamp(28px,3vw,38px);line-height:.95;text-transform:uppercase;margin-bottom:8px;letter-spacing:-.01em}
+  .nf-card-title .pk{color:var(--pink)}
+  .nf-card-sub{font-family:var(--M);font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-bottom:28px;line-height:1.6}
+  .nf-form{display:flex;flex-direction:column;gap:14px}
+  .nf-label{font-family:var(--M);font-size:9px;letter-spacing:.3em;text-transform:uppercase;opacity:.7;margin-bottom:-8px}
+  .nf-input,.nf-textarea{background:transparent;border:none;border-bottom:1.5px solid rgba(244,233,206,.35);padding:12px 0 10px;font-family:var(--M);font-size:14px;color:var(--cream);outline:none;transition:border-color .2s}
+  .nf-input:focus,.nf-textarea:focus{border-bottom-color:var(--cream)}
+  .nf-input::placeholder,.nf-textarea::placeholder{color:rgba(244,233,206,.4);text-transform:none;letter-spacing:.02em}
+  .nf-textarea{min-height:96px;resize:vertical;font-family:var(--M);line-height:1.5}
+  .nf-sub-btn{background:var(--cream);color:var(--red);font-family:var(--M);font-size:12px;letter-spacing:.24em;text-transform:uppercase;padding:18px 28px;border:none;cursor:pointer;font-weight:500;margin-top:14px;transition:background .2s,opacity .2s}
+  .nf-sub-btn:hover{background:var(--pink)}
+  .nf-sub-btn:disabled{opacity:.5;cursor:wait}
+  .nf-succ{display:none;font-family:var(--M);font-size:11px;letter-spacing:.22em;text-transform:uppercase;text-align:center;margin-top:16px;padding:14px;background:rgba(244,233,206,.12);border:1px solid rgba(244,233,206,.3)}
+  .nf-succ.show{display:block}
+  .nf-err{display:none;font-family:var(--M);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-align:center;margin-top:14px;padding:12px;background:rgba(255,80,80,.15);border:1px solid rgba(255,80,80,.4);color:#ffeaea}
+  .nf-err.show{display:block}
+  @media (max-width:900px){
+    .nf-grid{grid-template-columns:1fr;gap:24px;margin-top:48px}
+    .nf-card{padding:32px 24px}
+  }
+  @media (max-width:600px){
+    #notify-form{padding:70px 20px}
+  }
+
+  /* ===== LAST EDITION BADGE ===== */
+  .last-edition-badge{display:inline-block;font-family:var(--M);font-size:10px;letter-spacing:.32em;text-transform:uppercase;padding:8px 16px;background:rgba(244,233,206,.1);border:1px solid rgba(244,233,206,.3);color:var(--cream);margin-bottom:20px}
 
   /* primary CTA — Buy Tickets */
   .btn--tickets{background:var(--cream);color:var(--red);font-weight:700;font-size:12px;letter-spacing:.28em;padding:18px 30px;box-shadow:0 10px 30px rgba(0,0,0,.18),0 0 0 0 rgba(244,233,206,.5);animation:ctaPulse 2.4s ease-in-out infinite}
@@ -933,7 +970,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   <div class="nls">
     <a href="#acts"  class="na">Protocol</a>
     <a href="#sched" class="na">Schedule</a>
-    <button id="eventbrite-widget-modal-trigger-1988484526748" type="button" class="na na--cta" data-cur="tickets">Buy Tickets</button>
+    <button type="button" class="na na--cta" data-cur="notify" onclick="document.getElementById('notify-form').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.getElementById('notifyEmail')?.focus(),700);">Get Notified</button>
     <a href="#faq" class="na na--faq">FAQ</a>
     <div class="lang-toggle">
       <button class="lang-btn" id="langNL" onclick="setLang('nl')" data-cur="NL">NL</button>
@@ -955,7 +992,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
       <div class="row"><span class="k">Long</span><span>4.9174° E</span></div>
       <div class="row"><span class="k">Venue</span><span>IJland AMS</span></div>
       <div class="row"><span class="k">Capacity</span><span>400</span></div>
-      <div class="row"><span class="k">Status</span><span style="color:var(--pink)">● Open</span></div>
+      <div class="row"><span class="k">Status</span><span style="color:var(--pink)" id="hStatus">● Brewing</span></div>
     </div>
 
     <div class="hero-type" style="justify-self:center;align-self:center">
@@ -965,19 +1002,15 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
         <span class="hero-logo-row hero-logo-bottom"><span class="day">Day</span><span class="rave">Rave</span></span>
       </h1>
       <div class="hero-tag">
-        <span>14 Jun 2026</span><span class="b"></span>
-        <span>IJland · AMS Noord</span><span class="b"></span>
-        <span>12:00 — 19:00</span>
+        <span id="heroTagPrefix">— Last Edition · 14 Jun 2026 —</span>
       </div>
-      <span class="hero-cd-label" id="heroCdLabel">— Countdown to the rave —</span>
-      <div class="hero-countdown" id="heroCdBox" aria-live="polite">
-        <div class="hcd"><div class="hcd-v" id="hcdD">—</div><div class="hcd-l" data-cd="days">Days</div></div>
-        <div class="hcd"><div class="hcd-v" id="hcdH">—</div><div class="hcd-l" data-cd="hrs">Hours</div></div>
-        <div class="hcd"><div class="hcd-v" id="hcdM">—</div><div class="hcd-l" data-cd="min">Min</div></div>
-        <div class="hcd"><div class="hcd-v" id="hcdS">—</div><div class="hcd-l" data-cd="sec">Sec</div></div>
+      <div class="brewing-box" id="brewingBox">
+        <div class="brewing-eye" id="brewingEye">— Coming Soon —</div>
+        <div class="brewing-title" id="brewingTitle">A NEW EVENT<br><span class="pk">IS BREWING.</span></div>
+        <div class="brewing-sub" id="brewingSub">Be the first to know when the next Day Rave drops.</div>
       </div>
       <div class="hero-cta">
-        <button id="eventbrite-widget-modal-trigger-1988484526748" type="button" class="btn btn--tickets" data-cur="tickets">Buy Tickets →</button>
+        <button type="button" class="btn btn--tickets" onclick="document.getElementById('notify-form').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.getElementById('notifyEmail')?.focus(),700);" data-cur="notify">Get Notified →</button>
         <a href="https://chat.whatsapp.com/Hbyg4XitpbQDC8Hm7uv0HZ" target="_blank" rel="noopener" class="btn btn--wa-ghost" data-cur="join">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.463 3.488A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           <span id="waText">Join Community</span>
@@ -990,7 +1023,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
       <div class="row"><span class="k">Sauna</span><span id="hSauna">90°C</span></div>
       <div class="row"><span class="k">BPM</span><span id="hBPM">128</span></div>
       <div class="row"><span class="k">Format</span><span>Open Day</span></div>
-      <div class="row"><span class="k">Date</span><span id="hCD">T− — —</span></div>
+      <div class="row"><span class="k">Last Held</span><span id="hCD">14 Jun 2026</span></div>
     </div>
   </div>
 
@@ -1222,13 +1255,13 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   </div>
 </section>
 
-<!-- ============ WHEN ============ -->
-<section id="when">
+<!-- ============ WHEN (hidden — past event) ============ -->
+<section id="when" style="display:none">
   <div class="splash" style="width:500px;height:500px;background:var(--red);top:-10%;left:-10%;opacity:.2"></div>
   <div class="splash" style="width:400px;height:400px;background:var(--cream);bottom:-10%;right:-5%;opacity:.3"></div>
   <div class="when-inner">
     <div>
-      <div class="feel-kw" style="margin-bottom:24px">— Save The Date —</div>
+      <div class="feel-kw" style="margin-bottom:24px" id="whenKw">— Last Edition —</div>
       <div class="when-num" id="whenNum">
         <span class="day1">14</span>
         <span class="stroke">JUN</span>
@@ -1239,12 +1272,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
       <div class="row"><span class="k">Day</span><span class="v">Sunday</span></div>
       <div class="row"><span class="k">Time</span><span class="v">12 — 19h</span></div>
       <div class="row"><span class="k">Venue</span><span class="v">IJland AMS</span></div>
-      <div class="when-countdown" id="cdBox">
-        <div class="cd"><div class="cd-v" id="cdD">—</div><div class="cd-l">Days</div></div>
-        <div class="cd"><div class="cd-v" id="cdH">—</div><div class="cd-l">Hrs</div></div>
-        <div class="cd"><div class="cd-v" id="cdM">—</div><div class="cd-l">Min</div></div>
-        <div class="cd"><div class="cd-v" id="cdS">—</div><div class="cd-l">Sec</div></div>
-      </div>
+      <div class="row"><span class="k">Next Edition</span><span class="v" style="color:var(--pink)" id="nextEdition">TBA</span></div>
     </div>
   </div>
 </section>
@@ -1252,6 +1280,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
 <!-- ============ SCHEDULE ============ -->
 <section id="sched">
   <div class="sched-inner">
+    <span class="last-edition-badge" id="lastEditionBadge">— Last Edition · 14 June 2026 —</span>
     <div class="sched-head">
       <h2 class="sched-title">The Day /<br><span style="color:var(--pink)">Four Areas.</span></h2>
       <div style="font-family:var(--M);font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.7;max-width:280px;line-height:1.8">One day. Four zones.<br>Move between them freely.</div>
@@ -1360,7 +1389,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
       <div class="vbar-cell"><span class="vbar-k">Time</span><span class="vbar-v">12:00–19:00</span></div>
       <div class="vbar-cell"><span class="vbar-k">From</span><span class="vbar-v">€17</span></div>
       <div class="vbar-cell">
-        <button id="eventbrite-widget-modal-trigger-1988484526748" type="button" class="vbar-btn">Buy Tickets →</button>
+        <button type="button" class="vbar-btn" onclick="document.getElementById('notify-form').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.getElementById('notifyEmail')?.focus(),700);">Get Notified →</button>
       </div>
     </div>
 
@@ -1692,6 +1721,61 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   <div class="jn">Urban Wellness · Amsterdam · 400 spots</div>
 </section>
 
+<!-- ============ NOTIFY + FEEDBACK ============ -->
+<section id="notify-form">
+  <div class="nf-inner">
+    <div class="nf-head">
+      <div class="nf-eye" id="nfEye">— What's Next —</div>
+      <h2 class="nf-title" id="nfTitle">A New Edition<br><span class="pk">Is Brewing.</span></h2>
+      <div class="nf-sub" id="nfSub">Thanks for making our first edition successful. Help us shape the next one — drop your email for first access and tell us what you want to see.</div>
+    </div>
+
+    <div class="nf-grid">
+      <!-- Get Notified card -->
+      <div class="nf-card">
+        <div class="nf-card-eye" id="notifyCardEye">— Get Notified —</div>
+        <h3 class="nf-card-title" id="notifyCardTitle">First in<br><span class="pk">when tickets drop.</span></h3>
+        <div class="nf-card-sub" id="notifyCardSub">Be the first to know the date, lineup, and ticket release for the next Day Rave.</div>
+        <form class="nf-form" id="notifyFormEl">
+          <input type="hidden" name="_subject" value="New subscriber — The Day Rave">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <span class="nf-label" id="notifyNameLabel">Name</span>
+          <input class="nf-input" id="notifyName" name="name" type="text" placeholder="Your name" required>
+          <span class="nf-label" id="notifyEmailLabel">Email</span>
+          <input class="nf-input" id="notifyEmail" name="email" type="email" placeholder="you@domain.com" required>
+          <button class="nf-sub-btn" id="notifySubBtn" type="submit">Notify me →</button>
+          <div class="nf-err" id="notifyErr"></div>
+          <div class="nf-succ" id="notifySucc">✓ You're on the list. We'll be in touch.</div>
+        </form>
+      </div>
+
+      <!-- Feedback card -->
+      <div class="nf-card">
+        <div class="nf-card-eye" id="feedbackCardEye">— Feedback & Wishlist —</div>
+        <h3 class="nf-card-title" id="feedbackCardTitle">Shape the<br><span class="pk">next edition.</span></h3>
+        <div class="nf-card-sub" id="feedbackCardSub">How was the last Day Rave? What activities do you want to see next time?</div>
+        <form class="nf-form" id="feedbackFormEl">
+          <input type="hidden" name="_subject" value="Feedback — The Day Rave">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <span class="nf-label" id="fbNameLabel">Name (optional)</span>
+          <input class="nf-input" id="fbName" name="name" type="text" placeholder="Your name">
+          <span class="nf-label" id="fbEmailLabel">Email (optional)</span>
+          <input class="nf-input" id="fbEmail" name="email" type="email" placeholder="you@domain.com">
+          <span class="nf-label" id="fbFeedbackLabel">Your feedback on the last edition</span>
+          <textarea class="nf-textarea" id="fbFeedback" name="feedback" placeholder="What did you love? What would you change?" required></textarea>
+          <span class="nf-label" id="fbWishlistLabel">Activities you'd love to see next time</span>
+          <textarea class="nf-textarea" id="fbWishlist" name="wishlist" placeholder="Yoga? Breathwork? Specific DJs? Tell us everything." required></textarea>
+          <button class="nf-sub-btn" id="fbSubBtn" type="submit">Send feedback →</button>
+          <div class="nf-err" id="fbErr"></div>
+          <div class="nf-succ" id="fbSucc">✓ Thank you. We read every single one.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div>
     <div class="flo">The Day Rave</div>
@@ -1711,10 +1795,10 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   <div class="fclock" id="fclock">AMS · —:—</div>
 </footer>
 
-<!-- floating ticket badge -->
-<div class="tix-pop" id="tixPop" role="region" aria-label="Buy tickets">
+<!-- floating notify badge -->
+<div class="tix-pop" id="tixPop" role="region" aria-label="Get notified about next edition">
   <span class="tix-dot" aria-hidden="true"></span>
-  <a href="https://www.eventbrite.nl/e/tickets-the-coffee-day-rave-wellness-event-1988484526748?aff=oddtdtcreator" target="_blank" rel="noopener" data-cur="tickets">Tickets · 14 June →</a>
+  <a href="#notify-form" onclick="event.preventDefault();document.getElementById('notify-form').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.getElementById('notifyEmail')?.focus(),700);" data-cur="notify">Next Edition · Get Notified →</a>
   <button class="tix-x" type="button" onclick="dismissTixPop()" aria-label="Dismiss" data-cur="close">×</button>
 </div>
 
@@ -1871,41 +1955,13 @@ onScroll();
   document.querySelectorAll('#feelStats .feel-stat, #invStats .inum').forEach(el=>io.observe(el));
 })();
 
-/* ==================== COUNTDOWN ==================== */
-(function countdown(){
-  const target=new Date('2026-06-14T12:00:00+02:00').getTime();
-  const D=document.getElementById('cdD'),H=document.getElementById('cdH'),M=document.getElementById('cdM'),S=document.getElementById('cdS');
-  const hD=document.getElementById('hcdD'),hH=document.getElementById('hcdH'),hM=document.getElementById('hcdM'),hS=document.getElementById('hcdS');
-  const N=document.getElementById('ncd'),HCD=document.getElementById('hCD'),fclock=document.getElementById('fclock');
-  const heroLabel=document.getElementById('heroCdLabel');
-
+/* ==================== AMS CLOCK ==================== */
+(function clockTick(){
+  const fclock=document.getElementById('fclock');
+  if(!fclock)return;
   function tick(){
-    const diff=Math.max(0,target-Date.now());
-    if(diff<=0){
-      if(D)D.textContent='00';
-      if(H)H.textContent='LIVE';
-      if(M)M.textContent='NOW';
-      if(S)S.textContent='';
-      if(hD)hD.textContent='00';
-      if(hH)hH.textContent='LIVE';
-      if(hM)hM.textContent='NOW';
-      if(hS)hS.textContent='—';
-      if(heroLabel)heroLabel.textContent='— The rave is live —';
-      return;
-    }
-    const d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60,s=Math.floor(diff/1000)%60;
-    const dd=String(d).padStart(2,'0'),hh=String(h).padStart(2,'0'),mm=String(m).padStart(2,'0'),ss=String(s).padStart(2,'0');
-    if(D)D.textContent=dd;
-    if(H)H.textContent=hh;
-    if(M)M.textContent=mm;
-    if(S)S.textContent=ss;
-    if(hD)hD.textContent=dd;
-    if(hH)hH.textContent=hh;
-    if(hM)hM.textContent=mm;
-    if(hS)hS.textContent=ss;
-    if(N)N.textContent='T−'+d+'d '+hh+':'+mm;
-    if(HCD)HCD.textContent='T−'+d+' days';
-    if(fclock){const now=new Date();fclock.textContent='AMS · '+now.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}
+    const now=new Date();
+    fclock.textContent='AMS · '+now.toLocaleTimeString('nl-NL',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
   }
   tick();
   setInterval(tick,1000);
@@ -2100,6 +2156,48 @@ function copyEmail(){
   });
 }
 
+/* ==================== NOTIFY + FEEDBACK FORMS ==================== */
+function bindNfForm(formId, succId, errId, btnId, btnDefault){
+  const form=document.getElementById(formId);
+  if(!form)return;
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const succ=document.getElementById(succId);
+    const err=document.getElementById(errId);
+    const btn=document.getElementById(btnId);
+    err.classList.remove('show');err.textContent='';
+    if(!form.checkValidity()){
+      err.textContent='Please fill in all required fields.';
+      err.classList.add('show');
+      form.reportValidity();
+      return;
+    }
+    btn.disabled=true;btn.textContent='Sending...';
+    try{
+      const formData=new FormData(form);
+      const res=await fetch('https://formsubmit.co/ajax/altscantec@gmail.com',{
+        method:'POST',
+        headers:{'Accept':'application/json'},
+        body:formData
+      });
+      const data=await res.json();
+      if(res.ok&&(data.success==='true'||data.success===true)){
+        form.reset();
+        succ.classList.add('show');
+        btn.style.display='none';
+      }else{
+        throw new Error(data.message||'Failed to submit');
+      }
+    }catch(ex){
+      err.textContent='Something went wrong. Please try again.';
+      err.classList.add('show');
+      btn.disabled=false;btn.textContent=btnDefault;
+    }
+  });
+}
+bindNfForm('notifyFormEl','notifySucc','notifyErr','notifySubBtn','Notify me →');
+bindNfForm('feedbackFormEl','fbSucc','fbErr','fbSubBtn','Send feedback →');
+
 /* ==================== SMOOTH ANCHOR SCROLL ==================== */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-10,behavior:'smooth'});}})});
 
@@ -2135,24 +2233,58 @@ function setLang(lang){
   /* ---- Nav ---- */
   t('a[href="#acts"]','Protocol','Protocol');
   t('a[href="#sched"]','Schedule','Programma');
-  t('.na--cta','Buy Tickets','Koop Tickets');
+  t('.na--cta','Get Notified','Hou Me Op De Hoogte');
   t('.na--faq','FAQ','FAQ');
 
   /* ---- Hero side left ---- */
   t('.hero-side.left .row:nth-child(3) .k','Venue','Locatie');
   t('.hero-side.left .row:nth-child(4) .k','Capacity','Capaciteit');
+  t('#hStatus','● Brewing','● In Voorbereiding');
 
   /* ---- Hero side right ---- */
   t('.hero-side.right .row:nth-child(4) .k','Format','Formaat');
   t('.hero-side.right .row:nth-child(4) span:last-child','Open Day','Open Dag');
-  t('.hero-side.right .row:nth-child(5) .k','Date','Datum');
+  t('.hero-side.right .row:nth-child(5) .k','Last Held','Laatst Gehouden');
 
   /* ---- Hero CTA ---- */
-  t('.btn--tickets','Buy Tickets →','Koop Tickets →');
+  t('.btn--tickets','Get Notified →','Hou Me Op De Hoogte →');
   t('#waText','Join Community','Word Lid');
 
-  /* ---- Hero tag ---- */
-  t('.hero-tag span:first-child','14 Jun 2026','14 Jun 2026');
+  /* ---- Hero brewing box ---- */
+  t('#heroTagPrefix','— Last Edition · 14 Jun 2026 —','— Vorige Editie · 14 Jun 2026 —');
+  t('#brewingEye','— Coming Soon —','— Binnenkort —');
+  h('#brewingTitle','A NEW EVENT<br><span class="pk">IS BREWING.</span>','EEN NIEUW EVENT<br><span class="pk">IS IN DE MAAK.</span>');
+  t('#brewingSub','Be the first to know when the next Day Rave drops.','Wees de eerste die weet wanneer de volgende Day Rave er is.');
+
+  /* ---- Last Edition badge (schedule) ---- */
+  t('#lastEditionBadge','— Last Edition · 14 June 2026 —','— Vorige Editie · 14 Juni 2026 —');
+
+  /* ---- Notify + Feedback section ---- */
+  t('#nfEye','— What\'s Next —','— Wat Komt Eraan —');
+  h('#nfTitle','A New Edition<br><span class="pk">Is Brewing.</span>','Een Nieuwe Editie<br><span class="pk">Is In De Maak.</span>');
+  t('#nfSub','Thanks for making our first edition successful. Help us shape the next one — drop your email for first access and tell us what you want to see.','Bedankt dat je onze eerste editie geslaagd hebt gemaakt. Help ons de volgende vorm te geven — laat je e-mail achter voor voorrang en vertel ons wat je wilt zien.');
+  t('#notifyCardEye','— Get Notified —','— Hou Me Op De Hoogte —');
+  h('#notifyCardTitle','First in<br><span class="pk">when tickets drop.</span>','Als eerste<br><span class="pk">bij de ticketverkoop.</span>');
+  t('#notifyCardSub','Be the first to know the date, lineup, and ticket release for the next Day Rave.','Wees de eerste die de datum, line-up en ticketrelease voor de volgende Day Rave weet.');
+  t('#notifyNameLabel','Name','Naam');
+  t('#notifyEmailLabel','Email','E-mail');
+  t('#notifySubBtn','Notify me →','Hou me op de hoogte →');
+  t('#notifySucc','✓ You\'re on the list. We\'ll be in touch.','✓ Je staat op de lijst. We nemen contact op.');
+  t('#feedbackCardEye','— Feedback & Wishlist —','— Feedback & Wensenlijst —');
+  h('#feedbackCardTitle','Shape the<br><span class="pk">next edition.</span>','Geef vorm aan<br><span class="pk">de volgende editie.</span>');
+  t('#feedbackCardSub','How was the last Day Rave? What activities do you want to see next time?','Hoe was de vorige Day Rave? Welke activiteiten wil je de volgende keer zien?');
+  t('#fbNameLabel','Name (optional)','Naam (optioneel)');
+  t('#fbEmailLabel','Email (optional)','E-mail (optioneel)');
+  t('#fbFeedbackLabel','Your feedback on the last edition','Je feedback over de vorige editie');
+  t('#fbWishlistLabel','Activities you\'d love to see next time','Activiteiten die je de volgende keer wilt zien');
+  t('#fbSubBtn','Send feedback →','Stuur feedback →');
+  t('#fbSucc','✓ Thank you. We read every single one.','✓ Dankjewel. We lezen elke reactie.');
+  pl('#notifyName','Your name','Je naam');
+  pl('#notifyEmail','you@domain.com','jij@voorbeeld.nl');
+  pl('#fbName','Your name','Je naam');
+  pl('#fbEmail','you@domain.com','jij@voorbeeld.nl');
+  pl('#fbFeedback','What did you love? What would you change?','Wat vond je geweldig? Wat zou je veranderen?');
+  pl('#fbWishlist','Yoga? Breathwork? Specific DJs? Tell us everything.','Yoga? Ademwerk? Specifieke DJs? Vertel ons alles.');
 
   /* ---- Cup section ---- */
   t('.cup-copy .kw','Signature Drink','Signature Drink');
@@ -2216,13 +2348,6 @@ function setLang(lang){
   t('.when-meta .row:nth-child(3) .k','Venue','Locatie');
   t('.cd-l','Days','Dagen',0);
   t('.cd-l','Hrs','Uren',1);
-
-  /* ---- Hero countdown ---- */
-  t('#heroCdLabel','— Countdown to the rave —','— Aftellen naar de rave —');
-  t('.hcd-l[data-cd="days"]','Days','Dagen');
-  t('.hcd-l[data-cd="hrs"]','Hours','Uren');
-  t('.hcd-l[data-cd="min"]','Min','Min');
-  t('.hcd-l[data-cd="sec"]','Sec','Sec');
 
   /* ---- Schedule / Four Areas ---- */
   h('.sched-title',
@@ -2382,7 +2507,7 @@ function setLang(lang){
     'E-mail <a href="mailto:ask@housedecoded.com">ask@housedecoded.com</a> of neem contact op via Instagram <a href="https://www.instagram.com/the.day.rave" target="_blank" rel="noopener">@the.day.rave</a>.');
 
   /* ---- Ticket badge ---- */
-  t('#tixPop a','Tickets · 14 June →','Tickets · 14 Juni →');
+  t('#tixPop a','Next Edition · Get Notified →','Volgende Editie · Hou Me Op De Hoogte →');
 
   /* ---- Copy toast ---- */
   t('#copyToast','Email copied ✓','E-mail gekopieerd ✓');
