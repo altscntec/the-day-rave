@@ -310,6 +310,15 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     .brewing-sub{font-size:10px}
   }
 
+  /* ===== HERO DATE + FLOATING CUP ===== */
+  .hero-stack{position:relative;width:clamp(300px,40vw,440px);margin:16px auto 0;display:block;line-height:1}
+  .hero-date{display:block;width:100%;height:auto}
+  .hero-cup-wrap{position:absolute;left:50%;top:-14%;transform:translateX(-50%);width:58%;aspect-ratio:3/4;z-index:3;pointer-events:none}
+  .hero-cup-wrap .cup-float{width:100%;height:100%}
+  @media (max-width:600px){
+    .hero-cup-wrap{width:62%;top:-10%}
+  }
+
   /* ===== NOTIFY + FEEDBACK SECTION ===== */
   #notify-form{background:var(--cream);color:var(--red);padding:100px 32px}
   .nf-inner{max-width:1100px;margin:0 auto}
@@ -980,19 +989,19 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     </div>
 
     <div class="hero-type" style="justify-self:center;align-self:center">
-      <h1 class="hero-logo-wrap" aria-label="The Coffee Day Rave">
-        <div class="cup-float hero-cup" style="width:clamp(200px,28vw,320px);height:clamp(280px,38vw,440px)">
-          <img class="cup-photo" src="cup.svg" alt="The Coffee Day Rave" loading="lazy">
-          <span class="cup-accent cup-accent--a"></span>
-          <span class="cup-accent cup-accent--b"></span>
-          <span class="cup-accent cup-accent--c"></span>
-        </div>
-      </h1>
       <div class="hero-tag">
         <span id="heroTagPrefix">— 5th July, Sunday —</span>
       </div>
-      <div class="brewing-box" id="brewingBox">
-        <img src="next-edition.svg" alt="Next Edition — 5 July 2026, 10:00–13:00" style="display:block;width:100%;max-width:340px;height:auto;margin:0 auto" loading="lazy">
+      <div class="hero-stack" role="img" aria-label="The Coffee Day Rave — 5 July 2026, 10:00 to 13:00">
+        <img class="hero-date" src="next-edition.svg" alt="" loading="lazy">
+        <div class="hero-cup-wrap">
+          <div class="cup-float">
+            <img class="cup-photo" src="cup.svg" alt="" loading="lazy">
+            <span class="cup-accent cup-accent--a"></span>
+            <span class="cup-accent cup-accent--b"></span>
+            <span class="cup-accent cup-accent--c"></span>
+          </div>
+        </div>
       </div>
       <div class="hero-cta">
         <button type="button" class="btn btn--tickets" onclick="document.getElementById('notify-form').scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>document.getElementById('notifyEmail')?.focus(),700);" data-cur="notify">Get Notified →</button>
@@ -2175,9 +2184,6 @@ function setLang(lang){
 
   /* ---- Hero brewing box ---- */
   t('#heroTagPrefix','— Last Edition · 14 Jun 2026 —','— Vorige Editie · 14 Jun 2026 —');
-  t('#brewingEye','— Coming Soon —','— Binnenkort —');
-  h('#brewingTitle','A NEW EVENT<br><span class="pk">IS BREWING.</span>','EEN NIEUW EVENT<br><span class="pk">IS IN DE MAAK.</span>');
-  t('#brewingSub','Be the first to know when the next Day Rave drops.','Wees de eerste die weet wanneer de volgende Day Rave er is.');
 
   /* ---- Last Edition badge (schedule) ---- */
   t('#lastEditionBadge','— Last Edition · 14 June 2026 —','— Vorige Editie · 14 Juni 2026 —');
