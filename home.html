@@ -1020,7 +1020,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     </div>
   </div>
 
-  <a href="#feel" class="hero-scroll" aria-label="Scroll down" data-cur="scroll">
+  <a href="#acts" class="hero-scroll" aria-label="Scroll down" data-cur="scroll">
     <span>Scroll</span>
     <span class="hero-scroll-line"></span>
   </a>
@@ -1034,19 +1034,6 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
   </div>
 </div>
 
-
-<!-- ============ FEEL ============ -->
-<section id="feel">
-  <div class="feel-kw" data-rev>— Active Reset — Urban Wellness — All Day Energy —</div>
-  <h2 class="feel-hl">
-    <span class="word"><span data-split>Feel</span></span>
-    <span class="word"><span class="pink" data-split>Alive.</span></span>
-  </h2>
-  <div class="feel-stats" id="feelStats">
-    <div class="feel-stat" data-target="10" data-suffix="°C" data-dec="0"><div class="fs-i">01</div><div class="fs-v" data-v>10°C</div><div class="fs-l">Cold Plunge</div></div>
-    <div class="feel-stat" data-target="4" data-suffix="" data-dec="0"><div class="fs-i">02</div><div class="fs-v" data-v>4</div><div class="fs-l">Zumba · Head Pilates · 5K Run</div></div>
-  </div>
-</section>
 
 <!-- ============ PROTOCOL / ACTIVITIES ============ -->
 <section id="acts">
@@ -1126,7 +1113,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     </article>
 
     <!-- EASY PACE 5K RUN -->
-    <article class="act act--span2" data-k="booty">
+    <article class="act" data-k="booty">
       <div>
         <div class="act-num">05 / DISTANCE</div>
         <div class="act-name">Easy Pace<br>5K Run</div>
@@ -1144,7 +1131,7 @@ src="https://www.facebook.com/tr?id=2184798372322026&ev=PageView&noscript=1"/>
     </article>
 
     <!-- COFFEE RAVE -->
-    <article class="act act--span3" data-k="rave" style="background:#1a0606">
+    <article class="act act--span2" data-k="rave" style="background:#1a0606">
       <div>
         <div class="act-num">06 / HEADLINE</div>
         <div class="act-name">Coffee<br>Rave</div>
@@ -2227,12 +2214,6 @@ function setLang(lang){
     '<span class="dot"></span>Served all day, every stage',
     '<span class="dot"></span>De hele dag, op elk podium');
 
-  /* ---- Feel section ---- */
-  t('.feel-kw','— Active Reset — Urban Wellness — All Day Energy —','— Actieve Reset — Stedelijke Wellness — Energie de Hele Dag —',0);
-  t('.feel-stat:nth-child(1) .fs-l','Cold Plunge','IJsbad');
-  t('.feel-stat:nth-child(3) .fs-l','Areas','Zones');
-  t('.feel-stat:nth-child(5) .fs-l','Max Day Capacity','Max Dagcapaciteit');
-
   /* ---- Protocol / Activities ---- */
   t('.acts-subtitle',
     'Six stations, one ritual. Move between them at your own pace — the DJ never stops.',
@@ -2270,7 +2251,7 @@ function setLang(lang){
     'Een door de DJ geleide soundtrack. Druk op play — zo voelt twaalf tot zeven.');
 
   /* ---- When ---- */
-  t('.feel-kw','— Save The Date —','— Noteer de Datum —',1);
+  t('.feel-kw','— Save The Date —','— Noteer de Datum —',0);
   t('.when-meta .row:nth-child(1) .k','Day','Dag');
   t('.when-meta .row:nth-child(1) .v','Sunday','Zondag');
   t('.when-meta .row:nth-child(2) .k','Time','Tijd');
@@ -2325,7 +2306,7 @@ function setLang(lang){
   t('.area:nth-child(4) .slot:nth-child(4) .slot-no','with Simone','met Simone');
 
   /* ---- About / Why We Rave ---- */
-  t('.feel-kw','— The Story —','— Het Verhaal —',2);
+  t('.feel-kw','— The Story —','— Het Verhaal —',1);
   h('.inv-title','Why<br>We Rave.','Waarom<br>We Raven.');
   t('.inv-sub',
     'A new kind of Sunday. Cold plunge, sauna, HIIT, Pilates, Zumba — all wrapped in a seven-hour coffee rave. Active urban wellness, built for Amsterdam.',
@@ -2378,7 +2359,7 @@ function setLang(lang){
   t('footer .fco div','Contact','Contact');
 
   /* ---- FAQ ---- */
-  t('.feel-kw','— FAQ —','— Veelgestelde Vragen —',3);
+  t('.feel-kw','— FAQ —','— Veelgestelde Vragen —',2);
   h('.faq-title','Got<br>Questions<span style="color:var(--red)">?</span>','Heb je<br>Vragen<span style="color:var(--red)">?</span>');
   t('.faq-item:nth-child(1) .faq-qt','What is The Day Rave?','Wat is The Day Rave?');
   h('.faq-item:nth-child(1) .faq-a-inner',
